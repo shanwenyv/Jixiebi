@@ -5,7 +5,7 @@ using UnityEngine;
 public class Joint1Contol : MonoBehaviour
 {
 
-    public float joint1Angle = 0;//旋转角度
+    public float joint1Angle = 90;//旋转角度
 
 
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class Joint1Contol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Keypad1))
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(-90, 0, joint1Angle), 0.01f);
         }
