@@ -460,9 +460,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.1888049, y: 3.5551043, z: 4.6009636}
+    m_Target: {x: -2.027956, y: 5.890231, z: 4.4612846}
     speed: 2
-    m_Value: {x: 1.1888049, y: 3.5551043, z: 4.6009636}
+    m_Value: {x: -2.027956, y: 5.890231, z: 4.4612846}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -508,9 +508,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.29097885, y: 0.1107547, z: -0.033934865, w: -0.94969654}
+    m_Target: {x: -0.15626532, y: 0.28221756, z: -0.04664788, w: -0.945394}
     speed: 2
-    m_Value: {x: -0.29097736, y: 0.11075413, z: -0.03393469, w: -0.94969165}
+    m_Value: {x: -0.15633422, y: 0.28079754, z: -0.046413165, w: -0.94581085}
   m_Size:
     m_Target: 4.897378
     speed: 2
@@ -657,7 +657,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 13178
+  m_LastSelectedObjectID: 13188
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -715,7 +715,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 3efbffff5efbffff6afbffff7a33000084330000
+      m_ExpandedIDs: 5efbffff6afbffff84330000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -777,7 +777,8 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders: []
+    m_Folders:
+    - Assets/BackgroundScripts
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
