@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joint5Angle: 90
+  other5: {fileID: 416467516}
 --- !u!4 &112331974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3848b2bdabd99954586ee23e012a92f1,
@@ -241,7 +242,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1567886277}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &202231512
+--- !u!114 &202231511
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,7 +251,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 202231509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f53fa700d9f89f64bbf5b6e5f7ed56bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 1298b5a633767244b981e1b5e2c50490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   joint2Angle: 90
@@ -361,7 +362,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 416467515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95bd6869d2fba4f47a5cfd4f4a4e1763, type: 3}
+  m_Script: {fileID: 11500000, guid: 082a109562169b741b19e0119d38ba09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   joint1Angle: 90
@@ -735,7 +736,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 710451098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad100b0fe2ce80c4bb1b10e2fc15f8e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 48eea13a65984de47979bfd12d55bb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   joint3Angle: -90

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Joint4Contol : MonoBehaviour
 {
+    // Start is called before the first frame update
     public float joint4Angle = 90;//关节4旋转角度
     // Start is called before the first frame update
     public Joint1Contol other4;

@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Joint1Contol : MonoBehaviour
 {
-
     public float joint1Angle = 90;//关节1旋转角度
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
