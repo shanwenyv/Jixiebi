@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1298b5a633767244b981e1b5e2c50490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint2Angle: 75
+  joint2Angle: 60
   other: {fileID: 416467516}
 --- !u!1001 &208371902
 PrefabInstance:
@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082a109562169b741b19e0119d38ba09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint1Angle: 90
+  joint1Angle: 30
 --- !u!1001 &421338306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -739,7 +739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48eea13a65984de47979bfd12d55bb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint3Angle: -150
+  joint3Angle: -180
   other1: {fileID: 416467516}
 --- !u!1001 &796249225
 PrefabInstance:
@@ -1908,7 +1908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e840927f5aa6746b4080ac48b990a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint4Angle: 90
+  joint4Angle: 30
   other4: {fileID: 416467516}
 --- !u!1001 &1798469415
 PrefabInstance:

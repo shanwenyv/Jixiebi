@@ -11,7 +11,8 @@ public class Joint4Contol : MonoBehaviour
 
     void Start()
     {
-        //joint3Angle = joint3Angle - 90;
+        joint4Angle = 180 - joint4Angle;
+        joint4Angle = -joint4Angle;
     }
 
     // Update is called once per frame
@@ -19,7 +20,7 @@ public class Joint4Contol : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Keypad4))
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(180, other4.joint1Angle, 0), 0.01f);//用关节1的旋转角度修正轴的偏移
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(joint4Angle, other4.joint1Angle, 0), 0.01f);//用关节1的旋转角度修正轴的偏移
         }
     }
 }

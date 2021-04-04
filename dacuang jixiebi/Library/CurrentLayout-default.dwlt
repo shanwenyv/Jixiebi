@@ -273,7 +273,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 563}
   m_MaxSize: {x: 4001, y: 12063}
   vertical: 1
-  controlID: 34
+  controlID: 59
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -410,18 +410,18 @@ MonoBehaviour:
     m_ExpandedIDs: ffffffff00000000183600001a3600001c3600001e360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: ClawContol
+      m_OriginalName: ClawContol
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 14350
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_SearchString: 
@@ -532,21 +532,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 40fbffff5efbffff6afbffff803300008633000090330000a2330000e8330000
+      m_ExpandedIDs: 40fbffff5efbffff6afbffff8633000090330000a2330000e8330000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: "\u81C26"
+        m_OriginalName: "\u81C26"
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -1180
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -592,9 +592,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 4.643071, y: 2.9879127, z: 6.6146927}
+    m_Target: {x: 2.3569984, y: 2.3370514, z: 3.4457626}
     speed: 2
-    m_Value: {x: 4.643071, y: 2.9879127, z: 6.6146927}
+    m_Value: {x: 2.3569984, y: 2.3370514, z: 3.4457626}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -640,13 +640,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.18952715, y: 0.03592527, z: -0.0069404216, w: -0.98120004}
+    m_Target: {x: -0.20061515, y: 0.29227582, z: -0.06285114, w: -0.93294907}
     speed: 2
-    m_Value: {x: -0.18805394, y: 0.03593541, z: -0.0068864804, w: -0.9814769}
+    m_Value: {x: -0.20061357, y: 0.29227352, z: -0.06285065, w: -0.93294173}
   m_Size:
-    m_Target: 10.438393
+    m_Target: 6.9308705
     speed: 2
-    m_Value: 9.988893
+    m_Value: 6.9308705
   m_Ortho:
     m_Target: 0
     speed: 2
