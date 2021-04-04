@@ -16,7 +16,7 @@ public class Joint3Contol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Keypad3))
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(joint3Angle, other1.joint1Angle, 0), 0.01f);///调用Joint2Contl中的旋转角度抵消臂1对臂2坐标的影响
         }
