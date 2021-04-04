@@ -19,7 +19,7 @@ public class Joint5Contol : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Keypad5))
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, joint5Angle), 0.01f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(joint5Angle, 0, 0), 0.01f);
         }
     }
 }
