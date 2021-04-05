@@ -16,7 +16,7 @@ public class Joint1Contol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Keypad1))
+        if (Input.GetKey(KeyCode.Keypad1) || Input.GetKey(KeyCode.Return))
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(-90, 0, joint1Angle), 0.01f);
         }

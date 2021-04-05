@@ -17,7 +17,7 @@ public class Joint5Contol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Keypad5))
+        if (Input.GetKey(KeyCode.Keypad5) || Input.GetKey(KeyCode.Return))
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(joint5Angle, 0, 0), 0.01f);
         }

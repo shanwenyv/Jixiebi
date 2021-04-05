@@ -18,7 +18,7 @@ public class Joint4Contol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Keypad4))
+        if (Input.GetKey(KeyCode.Keypad4) || Input.GetKey(KeyCode.Return))
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(joint4Angle, other4.joint1Angle, 0), 0.01f);//用关节1的旋转角度修正轴的偏移
         }

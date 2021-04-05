@@ -10,13 +10,13 @@ public class Joint3Contol : MonoBehaviour
 
     void Start()
     {
-        //joint3Angle = joint3Angle - 90;
+        joint3Angle = joint3Angle - 5 ;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Keypad3))
+        if (Input.GetKey(KeyCode.Keypad3) || Input.GetKey(KeyCode.Return))
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(joint3Angle, other1.joint1Angle, 0), 0.01f);///调用Joint2Contl中的旋转角度抵消臂1对臂2坐标的影响
         }
