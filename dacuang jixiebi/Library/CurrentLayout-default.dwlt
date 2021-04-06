@@ -152,8 +152,12 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 563}
   m_MaxSize: {x: 22006, y: 12063}
   vertical: 0
+<<<<<<< Updated upstream
   controlID: 193
 >>>>>>> main
+=======
+  controlID: 93
+>>>>>>> Stashed changes
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -187,12 +191,16 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 563}
   m_MaxSize: {x: 4001, y: 12063}
   vertical: 1
+<<<<<<< Updated upstream
 <<<<<<< HEAD
   controlID: 7727
 >>>>>>> main
 =======
   controlID: 34
 >>>>>>> main
+=======
+  controlID: 117
+>>>>>>> Stashed changes
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -437,8 +445,8 @@ MonoBehaviour:
     y: 0
     width: 473
     height: 987
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -643,9 +651,13 @@ MonoBehaviour:
   m_Size:
     m_Target: 480.6284
     speed: 2
+<<<<<<< Updated upstream
     m_Value: 480.6284
 =======
     m_Value: {x: -0.3598917, y: 0.15758412, z: -0.061828606, w: -0.91750884}
+=======
+    m_Value: {x: -0.35989654, y: 0.15758623, z: -0.06182944, w: -0.9175212}
+>>>>>>> Stashed changes
   m_Size:
     m_Target: 4.654475
     speed: 2
@@ -1443,11 +1455,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3e2e0000
+      m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< Updated upstream
 =======
 >>>>>>> main
       m_ExpandedIDs: 1cfbffff4efbffff6afbffff8c330000a0330000d2330000e23300002e340000
+=======
+      m_ExpandedIDs: acf3ffff
+>>>>>>> Stashed changes
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1523,7 +1539,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 14360000
     m_LastClickedID: 13844
-    m_ExpandedIDs: 00000000683600006a3600006c3600006e360000
+    m_ExpandedIDs: 00000000d2370000d4370000d6370000d8370000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1551,7 +1567,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000683600006a3600006c3600006e360000
+    m_ExpandedIDs: ffffffff00000000d2370000d4370000d6370000d8370000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
