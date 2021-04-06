@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 613}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -114,8 +114,8 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 987
-  m_MinSize: {x: 908, y: 563}
-  m_MaxSize: {x: 22003, y: 12063}
+  m_MinSize: {x: 911, y: 563}
+  m_MaxSize: {x: 22006, y: 12063}
   vertical: 0
   controlID: 193
 --- !u!114 &6
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 563}
   m_MaxSize: {x: 4001, y: 12063}
   vertical: 1
-  controlID: 59
+  controlID: 34
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -429,9 +429,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.5904114, y: 8.1227865, z: -4.096292}
+    m_Target: {x: -0.4411619, y: 8.253357, z: -3.4061499}
     speed: 2
-    m_Value: {x: -1.5904114, y: 8.1227865, z: -4.096292}
+    m_Value: {x: -0.4411619, y: 8.253357, z: -3.4061499}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -481,9 +481,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.3598917, y: 0.15758412, z: -0.061828606, w: -0.91750884}
   m_Size:
-    m_Target: 4.54539
+    m_Target: 4.654475
     speed: 2
-    m_Value: 4.54539
+    m_Value: 4.654475
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -589,9 +589,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 36fbffff
-      m_LastClickedID: -1226
-      m_ExpandedIDs: 1cfbffff50fbffff6afbffff8c330000a0330000d2330000e23300002e340000
+      m_SelectedIDs: 3e2e0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 1cfbffff4efbffff6afbffff8c330000a0330000d2330000e23300002e340000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -653,7 +653,8 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders: []
+    m_Folders:
+    - Assets/BackgroundScripts
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders:
