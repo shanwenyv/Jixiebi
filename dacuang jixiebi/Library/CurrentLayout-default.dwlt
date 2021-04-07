@@ -294,8 +294,8 @@ MonoBehaviour:
     y: 0
     width: 473
     height: 987
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -429,9 +429,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.4411619, y: 8.253357, z: -3.4061499}
+    m_Target: {x: 4.372862, y: 6.20159, z: 0.3913455}
     speed: 2
-    m_Value: {x: -0.4411619, y: 8.253357, z: -3.4061499}
+    m_Value: {x: 4.372862, y: 6.20159, z: 0.3913455}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -477,13 +477,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.35989657, y: 0.15758623, z: -0.06182944, w: -0.9175212}
+    m_Target: {x: -0.11531443, y: 0.4225596, z: -0.05430932, w: -0.89734405}
     speed: 2
-    m_Value: {x: -0.3598917, y: 0.15758412, z: -0.061828606, w: -0.91750884}
+    m_Value: {x: -0.11531271, y: 0.4225533, z: -0.05430851, w: -0.8973307}
   m_Size:
-    m_Target: 4.654475
+    m_Target: 6.053737
     speed: 2
-    m_Value: 4.654475
+    m_Value: 5.753737
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -589,9 +589,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3e2e0000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 1cfbffff4efbffff6afbffff8c330000a0330000d2330000e23300002e340000
+      m_ExpandedIDs: 1efbffff4efbffff6afbffff8c330000a0330000d6330000e633000032340000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -667,7 +667,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 14360000
     m_LastClickedID: 13844
-    m_ExpandedIDs: 00000000683600006a3600006c3600006e360000
+    m_ExpandedIDs: 000000006a3600006c3600006e36000070360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -695,21 +695,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000683600006a3600006c3600006e360000
+    m_ExpandedIDs: ffffffff000000006a3600006c3600006e36000070360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Joint2Contol
+      m_OriginalName: Joint2Contol
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 11938
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_SearchString: 

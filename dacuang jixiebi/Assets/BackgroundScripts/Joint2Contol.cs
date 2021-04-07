@@ -10,8 +10,9 @@ public class Joint2Contol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        joint2Angle = -joint2Angle + 30;//旋转角度校准
+        //joint2Angle = -joint2Angle+20;
         //joint2Angle = joint2Angle / 2;
+        joint2Angle = joint2Angle - 90;//旋转角度校准
     }
 
     // Update is called once per frame

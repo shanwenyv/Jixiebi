@@ -11,7 +11,7 @@ public class Joint5Contol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        joint5Angle = joint5Angle - 90;
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class Joint5Contol : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Keypad5) || Input.GetKey(KeyCode.Return))
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(joint5Angle, 0, 0), 0.01f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, joint5Angle, 0), 0.01f);
         }
     }
 }
