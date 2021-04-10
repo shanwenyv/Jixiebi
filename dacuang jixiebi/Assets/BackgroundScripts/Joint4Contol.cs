@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*********************
+ 角度为模型相对于地面的夹角
+
+**********************/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +17,7 @@ public class Joint4Contol : MonoBehaviour
     {
         joint4Angle = 180 - joint4Angle;
         joint4Angle = -joint4Angle;
+        joint4Angle = joint4Angle + 90;
     }
 
     // Update is called once per frame
