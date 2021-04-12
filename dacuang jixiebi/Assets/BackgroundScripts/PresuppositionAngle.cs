@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Shanchu : MonoBehaviour
+/************************************************
+ * 预设1：80  45 110  30  60
+ * 
+ * 
+ * *********************************************/
+public class PresuppositionAngle : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
