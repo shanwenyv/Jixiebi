@@ -11,7 +11,7 @@ public class MainScene : SceneState
     /// <summary>
     /// 场景名称
     /// </summary>
-    readonly string sceneName = "Main";
+    readonly string sceneName = "SampleScene";
     PanelManager panelManager;
 
     public override void OnEnter()
@@ -31,6 +31,7 @@ public class MainScene : SceneState
     public override void OnExit()
     {
         SceneManager.sceneLoaded -= SceneLoaded;
+        panelManager.PopAll();
     }
 
     /// <summary>
@@ -40,7 +41,8 @@ public class MainScene : SceneState
     /// <param name="loadSceneMode"></param>
     private void SceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
-        // panelManager.Push(new MainPanel());
+        panelManager.Push(new MainPanel());
         Debug.Log($"{sceneName}加载完毕。。");
     }
+
 }

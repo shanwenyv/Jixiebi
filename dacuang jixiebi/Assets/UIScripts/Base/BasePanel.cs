@@ -86,4 +86,14 @@ public class BasePanel
         UIManager.DestroyUI(UIType);
     }
 
+    /// <summary>
+    /// 显示面板
+    /// </summary>
+    /// <param name="panel"></param>
+    public void Push(BasePanel panel) => PanelManager?.Push(panel);
+
+    /// <summary>
+    /// 关闭面板
+    /// </summary>
+    public void Pop() => PanelManager?.Pop();
 }

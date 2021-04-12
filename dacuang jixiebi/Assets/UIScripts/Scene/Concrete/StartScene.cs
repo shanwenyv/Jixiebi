@@ -11,7 +11,7 @@ public class StartScene : SceneState
     /// <summary>
     /// 场景名称
     /// </summary>
-    readonly string sceneName = "Start";
+    readonly string sceneName = "UiScene";
     PanelManager panelManager;
 
     public override void OnEnter()
@@ -31,6 +31,7 @@ public class StartScene : SceneState
     public override void OnExit()
     {
         SceneManager.sceneLoaded -= SceneLoaded;
+        panelManager.PopAll();
     }
 
     /// <summary>

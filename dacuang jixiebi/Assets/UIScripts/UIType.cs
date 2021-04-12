@@ -20,8 +20,5 @@ public class UIType
     {
         Path = path;
         Name = path.Substring(path.LastIndexOf('/') + 1);
-
     }
-
-
 }
