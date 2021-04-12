@@ -33,8 +33,20 @@ public class Joint2Contol : MonoBehaviour
             //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 90), 0.01f);
             if (joint2Angle >= 0 && joint2Angle <= 90)//到了指定角度就停止旋转
             {
-                if (this.transform.localEulerAngles.x >= joint2Angle - 0.5)
-                    j2RotationSpeedX = 0;
+                if(j2RotationSpeedX > 0)
+                {
+                    if(this.transform.localEulerAngles.x >= joint2Angle - 0.5)
+                    {
+                        j2RotationSpeedX = 0;
+                    }
+                }
+                if (j2RotationSpeedX < 0)
+                {
+                    if (this.transform.localEulerAngles.x <= joint2Angle + 0.5)
+                    {
+                        j2RotationSpeedX = 0;
+                    }
+                } 
                 transform.Rotate(new Vector3(j2RotationSpeedX, j2RotationSpeedY, j2RotationSpeedZ) * Time.deltaTime);
                 //print("旋转了：" + this.transform.localEulerAngles.x);
             }
@@ -90,6 +102,10 @@ public class Joint2Contol : MonoBehaviour
             j2RotationSpeedX = 30;
             a = 0;
             t = 0;
+            if (joint2Angle < this.transform.localEulerAngles.x + 0.5)
+            {
+                j2RotationSpeedX = -j2RotationSpeedX;
+            }
         }
     }
 }

@@ -13,6 +13,7 @@ public class Joint1Contol : MonoBehaviour
 
     private int t = 0;
     private int a = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -85,21 +86,42 @@ public class Joint1Contol : MonoBehaviour
         }*/
         if (Input.GetKey(KeyCode.Keypad1) || Input.GetKey(KeyCode.Return))
         {
+            
             if (joint1Angle >= 0)
             {
                 //print("旋转了：" + this.transform.localEulerAngles.z);
-                if (this.transform.localEulerAngles.z >= joint1Angle - 0.5)
+                if (j1RotationSpeedZ > 0)
                 {
-                    j1RotationSpeedZ = 0;
+                    if (this.transform.localEulerAngles.z >= joint1Angle - 0.5)
+                    {
+                        j1RotationSpeedZ = 0;
+
+                    }
+                }
+                else if(j1RotationSpeedZ < 0)
+                {
+                    if (this.transform.localEulerAngles.z <= joint1Angle + 0.5)
+                    {
+                        j1RotationSpeedZ = 0;
+
+                    }
                 }
                 transform.Rotate(new Vector3(j1RotationSpeedX, j1RotationSpeedY, j1RotationSpeedZ) * Time.deltaTime);
+
             }
+            
         }
             if (Input.GetKey(KeyCode.KeypadEnter))
         {
+            
             j1RotationSpeedZ = 30;
             a = 0;
             t = 0;
+
+            if (joint1Angle < this.transform.localEulerAngles.z + 0.5)
+            {
+                j1RotationSpeedZ = -j1RotationSpeedZ;
+            }
         }
 
     }
