@@ -52,19 +52,35 @@ public class Joint2Contol : MonoBehaviour
             }
             else if (joint2Angle > 90 && joint2Angle <= 180)
             {
-                //print(90 - (joint3Angle - 90));
+                
                 transform.Rotate(new Vector3(j2RotationSpeedX, j2RotationSpeedY, j2RotationSpeedZ) * Time.deltaTime);
-                //print("旋转了：" + this.transform.localEulerAngles.x);;
+                print("旋转了：" + this.transform.localEulerAngles.x);
+                
                 if (this.transform.localEulerAngles.x > 89.5)//校准：当旋转角度大于90的时候，启动检测判定（因为此模型转轴度数的特殊性，特写此算法）
                 {
                     t = 1;
                 }
-
-                if (this.transform.localEulerAngles.x < 90 - (joint2Angle - 90.5) && t == 1)
+                if (j2RotationSpeedX > 0)
                 {
-                    //print("执行了233");
-                    j2RotationSpeedX = 0;
+                    if (this.transform.localEulerAngles.x < 90 - (joint2Angle - 90.5) && t == 1)
+                    {
+                        //print("执行了233");
+                        j2RotationSpeedX = 0;
+                    }
                 }
+                if (j2RotationSpeedX < 0)
+                {
+                    if(this.transform.localEulerAngles.x > 90 && this.transform.localEulerAngles.x <90.3)
+                    {
+                        t = 1;
+                    }
+                    if (this.transform.localEulerAngles.x > 90 - (joint2Angle - 90.5) && t == 0)
+                    {
+                        //print("执行了233");
+                        j2RotationSpeedX = 0;
+                    }
+                }
+                
             }
             else if (joint2Angle > 180 && joint2Angle <= 270)
             {
@@ -102,6 +118,7 @@ public class Joint2Contol : MonoBehaviour
             j2RotationSpeedX = 30;
             a = 0;
             t = 0;
+            
             if (joint2Angle < this.transform.localEulerAngles.x + 0.5)
             {
                 j2RotationSpeedX = -j2RotationSpeedX;
