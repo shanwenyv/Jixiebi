@@ -10,7 +10,7 @@ public class PeoplePanel : BasePanel
 
     public override void OnEnter()
     {
-        UITool.GetOrAddComponentInChildren<Button>("Back").onClick.AddListener(() =>
+        UITool.GetOrAddComponentInChildren<Button>("BackButton").onClick.AddListener(() =>
         {
             //点击事件可以写在这里面
             PanelManager.Pop();

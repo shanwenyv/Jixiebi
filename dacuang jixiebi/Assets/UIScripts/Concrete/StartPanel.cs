@@ -13,18 +13,18 @@ public class StartPanel : BasePanel
 
     public override void OnEnter()
     {
-        UITool.GetOrAddComponentInChildren<Button>("People").onClick.AddListener(() =>
+        UITool.GetOrAddComponentInChildren<Button>("PeopleButton").onClick.AddListener(() =>
         {
             //点击事件可以写在这里面
             Debug.Log("开始按钮被点了");
             PanelManager.Push(new PeoplePanel());
             //PanelManager.Push(new BasePanel);
         });
-        UITool.GetOrAddComponentInChildren<Button>("Start").onClick.AddListener(() =>
+        UITool.GetOrAddComponentInChildren<Button>("StartButton").onClick.AddListener(() =>
         {
             GameRoot.Instance.SceneSystem.SetScene(new MainScene());
         });
-        UITool.GetOrAddComponentInChildren<Button>("Exit").onClick.AddListener(() =>
+        UITool.GetOrAddComponentInChildren<Button>("ExitButton").onClick.AddListener(() =>
         {
             Application.Quit();
         });

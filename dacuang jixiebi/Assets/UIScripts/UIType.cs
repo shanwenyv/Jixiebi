@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// 储存单个UI的信息，包括名字和路径
-/// </summary>
+/// </summary>  
 public class UIType
 {
     /// <summary>

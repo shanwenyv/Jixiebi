@@ -8,12 +8,13 @@ using UnityEngine.UI;
 /// </summary>
 public class MessagePanel : BasePanel
 {
+
     static readonly string path = "Perfabs/UI/Panel/MessagePanel";
     public MessagePanel() : base(new UIType(path)) { }
-
+        
     public override void OnEnter()
     {
-        UITool.GetOrAddComponentInChildren<Button>("Exit").onClick.AddListener(() =>
+        UITool.GetOrAddComponentInChildren<Button>("ExitButton").onClick.AddListener(() =>
         {
             PanelManager.Pop();
         });

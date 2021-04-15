@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Catch
+  - Joint1
+  - Joint2
+  - Joint3
+  - Joint4
+  - Joint5
+  - MessagePanel
   layers:
   - Default
   - TransparentFX

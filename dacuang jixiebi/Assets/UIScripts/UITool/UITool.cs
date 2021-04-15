@@ -63,11 +63,11 @@ public class UITool
         GameObject child = FindChildGameObject(name);
         if (child)
         {
-            if (child.GetComponent<T>() != null)
+            if (child.GetComponent<T>() == null)
             {
                 child.AddComponent<T>();
             }
-            return child.AddComponent<T>();
+            return child.GetComponent<T>();
         }
         return null;
     }
