@@ -8,15 +8,18 @@ using UnityEngine.UI;
 /// </summary>
 public class MainPanel : BasePanel
 {
+    bool pauseAndResume = true;
     static readonly string path = "Perfabs/UI/Panel/MainPanel";
     public MainPanel() : base(new UIType(path)) { }
 
     Button exitButton;
     Button messageButton;
     Button setButton;
-
+    Button pasueButton;
+    
     public override void OnEnter()
     {
+        pasueButton = UITool.GetOrAddComponentInChildren<Button>("PauseAndResumeButton");
         exitButton = UITool.GetOrAddComponentInChildren<Button>("ExitButton");
         messageButton = UITool.GetOrAddComponentInChildren<Button>("MessageButton");
         setButton = UITool.GetOrAddComponentInChildren<Button>("SetButton");
@@ -38,6 +41,30 @@ public class MainPanel : BasePanel
         {
             ShowAndHide();
         });
+        UITool.GetOrAddComponentInChildren<Button>("PauseAndResumeButton").onClick.AddListener(() =>
+        {
+            PauseAndResume();
+        });
+    }
+
+    /// <summary>
+    /// 紧急暂停和继续执行
+    /// </summary>
+    private void PauseAndResume()
+    {
+        if (pauseAndResume)
+        {
+            AngleMessage.GetAngleSpeed();
+            AngleMessage.SetSpeedZero();
+            UITool.GetOrAddComponentInChildren<Text>("PauseAndResume").text = "恢复运行";
+            pauseAndResume = false;
+        }
+        else
+        {
+            AngleMessage.SetAngleSpeed();
+            UITool.GetOrAddComponentInChildren<Text>("PauseAndResume").text = "紧急停止";
+            pauseAndResume = true;
+        }
     }
 
     /// <summary>
@@ -50,12 +77,16 @@ public class MainPanel : BasePanel
             exitButton.gameObject.SetActive(false);
             messageButton.gameObject.SetActive(false);
             setButton.gameObject.SetActive(false);
+            pasueButton.gameObject.SetActive(false);
+            UITool.GetOrAddComponentInChildren<Text>("ShowAndhide").text = "显示图标";
         }
         else
         {
             exitButton.gameObject.SetActive(true);
             messageButton.gameObject.SetActive(true);
             setButton.gameObject.SetActive(true);
+            pasueButton.gameObject.SetActive(true);
+            UITool.GetOrAddComponentInChildren<Text>("ShowAndhide").text = "隐藏图标";
         }
     }
 }

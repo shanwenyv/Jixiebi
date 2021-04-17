@@ -6,21 +6,12 @@ using UnityEngine.UI;
 public class AngleMessage : MonoBehaviour
 {
     public GameObject meui;
-    //public GameObject angle1Message;
-    //public GameObject angle2Message;
-    //public GameObject angle3Message;
-    //public GameObject angle4Message;
-    //public GameObject angle5Message;
     public GameObject[] angleMessage = new GameObject[5];
+    static float[] JointSpeed = new float[5];
 
     private void Awake()
     {
         meui = GameObject.FindGameObjectWithTag("MessagePanel");
-        //angle1Message = FindChildGameObject("Angle1");
-        //angle2Message = FindChildGameObject("Angle2");
-        //angle3Message = FindChildGameObject("Angle3");
-        //angle4Message = FindChildGameObject("Angle4");
-        //angle5Message = FindChildGameObject("Angle5");
         for (int i = 0; i < angleMessage.Length; i++)
         {
             angleMessage[i] = FindChildGameObject($"Angle{i + 1}");
@@ -32,14 +23,11 @@ public class AngleMessage : MonoBehaviour
         GetAngle();
     }
 
+    /// <summary>
+    /// 获取各个关节的角度
+    /// </summary>
     public void GetAngle()
     {
-        //angle1Message.GetComponent<Text>().text = $"{JointControl.joint1.transform.localRotation.eulerAngles.z}";
-        //angle2Message.GetComponent<Text>().text = $"{JointControl.joint2.transform.localRotation.eulerAngles.x}";
-        //angle3Message.GetComponent<Text>().text = $"{JointControl.joint3.transform.localRotation.eulerAngles.x}";
-        //angle4Message.GetComponent<Text>().text = $"{JointControl.joint4.transform.localRotation.eulerAngles.x}";
-        //angle5Message.GetComponent<Text>().text = $"{JointControl.joint5.transform.localRotation.eulerAngles.z}";
-
         angleMessage[0].GetComponent<Text>().text = $"{JointControl.joint[0].transform.localRotation.eulerAngles.z}";
         angleMessage[1].GetComponent<Text>().text = $"{JointControl.joint[1].transform.localRotation.eulerAngles.x}";
         angleMessage[2].GetComponent<Text>().text = $"{JointControl.joint[2].transform.localRotation.eulerAngles.x}";
@@ -47,6 +35,64 @@ public class AngleMessage : MonoBehaviour
         angleMessage[4].GetComponent<Text>().text = $"{JointControl.joint[4].transform.localRotation.eulerAngles.z}";
 
     }
+
+
+    /// <summary>
+    /// 获取单个关节速度的值
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    static public float GetSingleAngelSpeed(int n)
+    {
+        if (n == 1)
+            return JointControl.joint[0].GetComponent<Joint1Contol>().j1RotationSpeedZ;
+        if (n == 2)
+            return JointControl.joint[1].GetComponent<Joint2Contol>().j2RotationSpeedX;
+        if (n == 3)
+            return JointControl.joint[2].GetComponent<Joint3Contol>().j3RotationSpeedX;
+        if (n == 4)
+            return JointControl.joint[3].GetComponent<Joint4Contol>().j4RotationSpeedX;
+        if (n == 5)
+            return JointControl.joint[4].GetComponent<Joint5Contol>().j5RotationSpeedZ;
+        return 0;
+    }
+
+    /// <summary>
+    /// 紧急停止，将关节速度变为0
+    /// </summary>
+    static public void SetSpeedZero()
+    {
+        JointControl.joint[0].GetComponent<Joint1Contol>().j1RotationSpeedZ = 0;
+        JointControl.joint[1].GetComponent<Joint2Contol>().j2RotationSpeedX = 0;
+        JointControl.joint[2].GetComponent<Joint3Contol>().j3RotationSpeedX = 0;
+        JointControl.joint[3].GetComponent<Joint4Contol>().j4RotationSpeedX = 0;
+        JointControl.joint[4].GetComponent<Joint5Contol>().j5RotationSpeedZ = 0;
+    }
+
+    /// <summary>
+    /// 获取关节的速度
+    /// </summary>
+    /// <param name="speed"></param>
+    static public void GetAngleSpeed()
+    {
+        for (int i = 0; i < JointSpeed.Length; i++)
+        {
+            JointSpeed[i] = GetSingleAngelSpeed(i + 1);
+        }
+    }
+
+    /// <summary>
+    /// 设置关节速度，用于紧急停止后的恢复运行
+    /// </summary>
+    static public void SetAngleSpeed()
+    {
+        JointControl.joint[0].GetComponent<Joint1Contol>().j1RotationSpeedZ = JointSpeed[0];
+        JointControl.joint[1].GetComponent<Joint2Contol>().j2RotationSpeedX = JointSpeed[1];
+        JointControl.joint[2].GetComponent<Joint3Contol>().j3RotationSpeedX = JointSpeed[2];
+        JointControl.joint[3].GetComponent<Joint4Contol>().j4RotationSpeedX = JointSpeed[3];
+        JointControl.joint[4].GetComponent<Joint5Contol>().j5RotationSpeedZ = JointSpeed[4];
+    }
+
 
     public GameObject FindChildGameObject(string name)
     {
