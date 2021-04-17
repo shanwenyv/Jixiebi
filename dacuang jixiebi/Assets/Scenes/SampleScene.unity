@@ -5473,7 +5473,7 @@ Transform:
   m_Children:
   - {fileID: 1658132132}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &325939502 stripped
 Transform:
@@ -6025,6 +6025,8 @@ MonoBehaviour:
   j3RotationSpeedX: 30
   j3RotationSpeedY: 0
   j3RotationSpeedZ: 0
+  joint3AngleAbjust: 0
+  joint3SpeedAbjust: 0
 --- !u!4 &365717212 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4864367381693804, guid: 0fec0e1774acf4c9cb0522dd62f5ceb2,
@@ -7911,7 +7913,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &475157081 stripped
 Transform:
@@ -9291,7 +9293,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &554535526
 PrefabInstance:
@@ -14574,7 +14576,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9ffa76f4cc0a4f949809d97c15393a2e, type: 2}
+  - {fileID: 2100000, guid: 2661e3fbe3d78364882e6f7b06eaa726, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -25003,10 +25005,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1298b5a633767244b981e1b5e2c50490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint2Angle: 45
+  joint2Angle: 120
   j2RotationSpeedX: 30
   j2RotationSpeedY: 0
   j2RotationSpeedZ: 0
+  joint2AngleAbjust: 0
+  joint2SpeedAbjust: 0
 --- !u!1001 &1431930425
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29772,7 +29776,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704744663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45.923588, y: 10.992296, z: -3.403534}
+  m_LocalPosition: {x: 45.923588, y: 10.77, z: -3.403534}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 838747862}
@@ -31773,6 +31777,8 @@ MonoBehaviour:
   j4RotationSpeedX: 30
   j4RotationSpeedY: 0
   j4RotationSpeedZ: 0
+  joint4AngleAbjust: 0
+  joint4SpeedAbjust: 0
 --- !u!1001 &1798469415
 PrefabInstance:
   m_ObjectHideFlags: 0
