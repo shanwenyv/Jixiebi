@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿/********************************
+ * 因为模型内部轴的原因，在做负度数运动时，关节度数是从-360累加到0，所以需要校准 校准公式：实际角度=读取角度-360°
+********************************/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,87 +12,25 @@ public class Joint1Contol : MonoBehaviour
     //关节旋转角度
     public float j1RotationSpeedX = 0;
     public float j1RotationSpeedY = 0;
-    public float j1RotationSpeedZ = 30;
+    public float j1RotationSpeedZ = 30;//关节1的旋转速度
 
-    private int t = 0;
-    private int a = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        //因为初始速度为正，如果初始输入角度为负数，需要让初始速度为负
+        if (joint1Angle < 0)
+            j1RotationSpeedZ = -30;
     }
-
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKey(KeyCode.Keypad1) || Input.GetKey(KeyCode.Return))
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(-90, 0, joint1Angle), 0.01f);
-        }*/
-        /*if (Input.GetKey(KeyCode.Keypad1) || Input.GetKey(KeyCode.Return))
-        {
-            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 90), 0.01f);
-            if (joint1Angle >= 0 && joint1Angle <= 90)//到了指定角度就停止旋转
-            {
-                if (this.transform.localEulerAngles.z >= joint1Angle - 0.5)
-                    j1RotationSpeedZ = 0;
-                transform.Rotate(new Vector3(j1RotationSpeedX, j1RotationSpeedY, j1RotationSpeedZ) * Time.deltaTime);
-                //print("旋转了：" + this.transform.localEulerAngles.x);
-            }
-            else if (joint1Angle > 90 && joint1Angle <= 180)
-            {
-                //print(90 - (joint3Angle - 90));
-                transform.Rotate(new Vector3(j1RotationSpeedX, j1RotationSpeedY, j1RotationSpeedZ) * Time.deltaTime);
-                print("旋转了：" + this.transform.localEulerAngles.z);
-                if (this.transform.localEulerAngles.z > 89)//校准：当旋转角度大于90的时候，启动检测判定（因为此模型转轴度数的特殊性，特写此算法）
-                {
-                    t = 1;
-                }
-
-                if (this.transform.localEulerAngles.z < 90 - (joint1Angle - 90.5) && t == 1)
-                {
-                    //print("执行了233");
-                    j1RotationSpeedZ = 0;
-                }
-            }
-            else if (joint1Angle > 180 && joint1Angle <= 270)
-            {
-                transform.Rotate(new Vector3(j1RotationSpeedX, j1RotationSpeedY, j1RotationSpeedZ) * Time.deltaTime);
-                //print("旋转了：" + this.transform.localEulerAngles.x); ;
-                if (this.transform.localEulerAngles.z > 179.8)//校准：当旋转角度大于180的时候，启动检测判定（因为此模型转轴度数的特殊性，特写此算法）
-                {
-                    t = 1;
-                }
-                if (this.transform.localEulerAngles.z < 360.5 - (180 - (360 - joint1Angle)) && t == 1)
-                {
-                    //print("执行了233");
-                    j1RotationSpeedZ = 0;
-                }
-            }
-            else if (joint1Angle > 270 && joint1Angle <= 360)
-            {
-
-                transform.Rotate(new Vector3(j1RotationSpeedX, j1RotationSpeedY, j1RotationSpeedZ) * Time.deltaTime);
-                //print("旋转了：" + this.transform.localEulerAngles.x);
-                if (this.transform.localEulerAngles.z > 350.5)//校准：当旋转角度大于270的时候，启动检测判定（因为此模型转轴度数的特殊性，特写此算法）
-                {
-                    t = 1;
-                }
-                if (this.transform.localEulerAngles.z < 270.5 && t == 1)
-                {
-                    a = 1;
-                }
-                if (this.transform.localEulerAngles.z >= joint1Angle - 0.5 && a == 1)
-                    j1RotationSpeedX = 0;
-            }
-        }*/
         if (Input.GetKey(KeyCode.Keypad1) || Input.GetKey(KeyCode.Return))
         {
-            
-            if (joint1Angle >= 0)
+            transform.Rotate(new Vector3(j1RotationSpeedX, j1RotationSpeedY, j1RotationSpeedZ) * Time.deltaTime);//关节进行旋转
+            if (joint1Angle >= 0)//当输入的角度为正数时，机械臂在正数角度运动
             {
-                //print("旋转了：" + this.transform.localEulerAngles.z);
+                print("旋转了：" + this.transform.localEulerAngles.z);
                 if (j1RotationSpeedZ > 0)
                 {
                     if (this.transform.localEulerAngles.z >= joint1Angle - 0.5)
@@ -98,7 +39,7 @@ public class Joint1Contol : MonoBehaviour
 
                     }
                 }
-                else if(j1RotationSpeedZ < 0)
+                else if (j1RotationSpeedZ < 0)
                 {
                     if (this.transform.localEulerAngles.z <= joint1Angle + 0.5)
                     {
@@ -106,23 +47,46 @@ public class Joint1Contol : MonoBehaviour
 
                     }
                 }
-                transform.Rotate(new Vector3(j1RotationSpeedX, j1RotationSpeedY, j1RotationSpeedZ) * Time.deltaTime);
 
             }
-            
-        }
-            if (Input.GetKey(KeyCode.KeypadEnter))
-        {
-            
-            j1RotationSpeedZ = 30;
-            a = 0;
-            t = 0;
-
-            if (joint1Angle < this.transform.localEulerAngles.z + 0.5)
+            else if (joint1Angle <= 0)//当输入的角度为负数时，机械臂在负数角度运动
             {
-                j1RotationSpeedZ = -j1RotationSpeedZ;
+                print("旋转了：" + (this.transform.localEulerAngles.z - 360));
+                if (j1RotationSpeedZ > 0)
+                {
+                    if ((this.transform.localEulerAngles.z - 360) >= joint1Angle - 0.5)//判断时需要校准旋转角度的度数，当校准角度大于设定角度时停止
+                    {
+                        j1RotationSpeedZ = 0;
+
+                    }
+                }
+                else if (j1RotationSpeedZ < 0)
+                {
+                    if ((this.transform.localEulerAngles.z - 360) <= joint1Angle + 0.5)//判断时需要校准旋转角度的度数，当校准角度小于设定角度时停止
+                    {
+                        j1RotationSpeedZ = 0;
+
+                    }
+                }
             }
         }
-
+        if (Input.GetKey(KeyCode.KeypadEnter))//对各项参数进行初始化
+        {
+            j1RotationSpeedZ = 30;//初始化速度
+            if (joint1Angle > 0)//判断机械臂是否在做正数角度运动
+            {
+                if (joint1Angle < this.transform.localEulerAngles.z + 0.5)//机械臂在做正数角度运动时，如果输入度数小于当前度数，则速度值为负
+                {
+                    j1RotationSpeedZ = -j1RotationSpeedZ;
+                }
+            }
+            else if (joint1Angle < 0)//判断机械臂是否在做负数角度运动
+            {
+                if ((this.transform.localEulerAngles.z - 360) >= joint1Angle)//先校准角度，机械臂在做负数角度运动时，如果输入度数小于当前度数，则速度值为负
+                {
+                    j1RotationSpeedZ = -30;
+                }
+            }
+        }
     }
 }
