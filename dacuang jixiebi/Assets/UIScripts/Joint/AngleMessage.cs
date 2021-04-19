@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,9 +30,9 @@ public class AngleMessage : MonoBehaviour
     public void GetAngle()
     {
         angleMessage[0].GetComponent<Text>().text = $"{GetAngleZ15(JointControl.joint[0].transform.localRotation.eulerAngles.z)}";
-        angleMessage[1].GetComponent<Text>().text = $"{JointControl.joint[1].transform.localRotation.eulerAngles.x}";
-        angleMessage[2].GetComponent<Text>().text = $"{JointControl.joint[2].transform.localRotation.eulerAngles.x}";
-        angleMessage[3].GetComponent<Text>().text = $"{JointControl.joint[3].transform.localRotation.eulerAngles.x}";
+        angleMessage[1].GetComponent<Text>().text = $"{GetInspectorRotationValueMethod(Joint2Contol.Instance2.transform)}";
+        angleMessage[2].GetComponent<Text>().text = $"{GetInspectorRotationValueMethod(Joint3Contol.Instance3.transform)}";
+        angleMessage[3].GetComponent<Text>().text = $"{GetInspectorRotationValueMethod(Joint4Contol.Instance4.transform)}";
         angleMessage[4].GetComponent<Text>().text = $"{GetAngleZ15(JointControl.joint[4].transform.localRotation.eulerAngles.z)}";
     }
 
@@ -40,32 +41,15 @@ public class AngleMessage : MonoBehaviour
     /// </summary>
     /// <param name="x"></param>
     /// <returns></returns>
-    public float GetAngleZ15(float x)
+    public float GetAngleZ15(float value)
     {
-        if (x > 180)
-        {
-            return (x - 360);
-        }
-        return x;
+        float angle = value - 180;
+        if (angle > 0)
+            return angle - 180;
+
+        return angle + 180;
     }
 
-    /// <summary>
-    /// 关节234的信息修正
-    /// </summary>
-    /// <param name="x"></param>
-    /// <returns></returns>
-    public float GetAngleX234(float x)
-    {
-        if (x > 90 && x < 180)
-        {
-            return 180 - x;
-        }
-        else if (x > 180)
-        {
-            return x - 360;
-        }
-        return x;
-    }
 
     /// <summary>
     /// 获取单个关节速度的值
@@ -138,5 +122,27 @@ public class AngleMessage : MonoBehaviour
 
         Debug.LogWarning($"{meui.name}里找不到名为{name}的子对象");
         return null;
+    }
+
+    public float GetInspectorRotationValueMethod(Transform transform)
+    {
+        /*******************************
+        // 获取j角度原生值
+        *******************************/
+        System.Type transformType = transform.GetType();
+        PropertyInfo m_propertyInfo_rotationOrder = transformType.GetProperty("rotationOrder", BindingFlags.Instance | BindingFlags.NonPublic);
+        object m_OldRotationOrder = m_propertyInfo_rotationOrder.GetValue(transform, null);
+        MethodInfo m_methodInfo_GetLocalEulerAngles = transformType.GetMethod("GetLocalEulerAngles", BindingFlags.Instance | BindingFlags.NonPublic);
+        object value = m_methodInfo_GetLocalEulerAngles.Invoke(transform, new object[] { m_OldRotationOrder });
+        string temp = value.ToString();
+        //将字符串第一个和最后一个去掉
+        temp = temp.Remove(0, 1);
+        temp = temp.Remove(temp.Length - 1, 1);
+        //用‘，’号分割
+        string[] tempVector3;
+        tempVector3 = temp.Split(',');
+        //将分割好的数据传给Vector3
+        Vector3 vector3 = new Vector3(float.Parse(tempVector3[0]), float.Parse(tempVector3[1]), float.Parse(tempVector3[2]));
+        return vector3.x;
     }
 }
