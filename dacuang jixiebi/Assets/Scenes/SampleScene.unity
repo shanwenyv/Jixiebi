@@ -966,22 +966,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1905436431}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &53794430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53794429}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 176737853ea45e4489da588d5f5e074c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  joint1Angle: -90
-  j1RotationSpeedX: 0
-  j1RotationSpeedY: 0
-  j1RotationSpeedZ: 30
 --- !u!4 &53794432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a9d028123a759154eaf5132b47c7aedb,
@@ -6037,7 +6021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48eea13a65984de47979bfd12d55bb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint3Angle: 90
+  joint3Angle: -90
   j3RotationSpeedX: 30
   j3RotationSpeedY: 0
   j3RotationSpeedZ: 0
@@ -25021,7 +25005,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1298b5a633767244b981e1b5e2c50490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint2Angle: 120
+  joint2Angle: -80
+  j2RotationSpeedX: 30
+  j2RotationSpeedY: 0
+  j2RotationSpeedZ: 0
+  joint2AngleAbjust: 0
+  joint2SpeedAbjust: 0
+--- !u!114 &1430746366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430746361}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff8d1960b8685c4ead2578bb6ce71e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joint2Angle: -170
   j2RotationSpeedX: 30
   j2RotationSpeedY: 0
   j2RotationSpeedZ: 0
@@ -31789,7 +31791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e840927f5aa6746b4080ac48b990a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint4Angle: 90
+  joint4Angle: -90
   j4RotationSpeedX: 30
   j4RotationSpeedY: 0
   j4RotationSpeedZ: 0
