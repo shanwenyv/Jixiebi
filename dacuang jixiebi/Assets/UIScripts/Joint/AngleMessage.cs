@@ -8,7 +8,8 @@ public class AngleMessage : MonoBehaviour
 {
     public GameObject meui;
     public GameObject[] angleMessage = new GameObject[5];
-    static float[] JointSpeed = new float[5];
+    static float[] jointSpeed = new float[5];
+    static float[] jointSetAngle = new float[5];
 
     private void Awake()
     {
@@ -21,7 +22,18 @@ public class AngleMessage : MonoBehaviour
 
     void Update()
     {
+        GetAngleSpeed();
         GetAngle();
+        GetSetJointAngle();
+    }
+
+    public void GetSetJointAngle()
+    {
+        jointSetAngle[0] = JointControl.joint[0].GetComponent<Joint1Contol>().joint1Angle;
+        jointSetAngle[1] = JointControl.joint[1].GetComponent<Joint2Contol>().joint2Angle;
+        jointSetAngle[2] = JointControl.joint[2].GetComponent<Joint3Contol>().joint3Angle;
+        jointSetAngle[3] = JointControl.joint[3].GetComponent<Joint4Contol>().joint4Angle;
+        jointSetAngle[4] = JointControl.joint[4].GetComponent<Joint5Contol>().joint5Angle;
     }
 
     /// <summary>
@@ -29,11 +41,11 @@ public class AngleMessage : MonoBehaviour
     /// </summary>
     public void GetAngle()
     {
-        angleMessage[0].GetComponent<Text>().text = $"{GetAngleZ15(JointControl.joint[0].transform.localRotation.eulerAngles.z)}";
-        angleMessage[1].GetComponent<Text>().text = $"{GetInspectorRotationValueMethod(Joint2Contol.Instance2.transform)}";
-        angleMessage[2].GetComponent<Text>().text = $"{GetInspectorRotationValueMethod(Joint3Contol.Instance3.transform)}";
-        angleMessage[3].GetComponent<Text>().text = $"{GetInspectorRotationValueMethod(Joint4Contol.Instance4.transform)}";
-        angleMessage[4].GetComponent<Text>().text = $"{GetAngleZ15(JointControl.joint[4].transform.localRotation.eulerAngles.z)}";
+        angleMessage[0].GetComponent<Text>().text = $"{GetAngleZ(JointControl.joint[0].transform.localRotation.eulerAngles.z, 0)}";
+        angleMessage[1].GetComponent<Text>().text = $"{GetInspectorRotationValueMethod(Joint2Contol.Instance2.transform, 1)}";
+        angleMessage[2].GetComponent<Text>().text = $"{GetInspectorRotationValueMethod(Joint3Contol.Instance3.transform, 2)}";
+        angleMessage[3].GetComponent<Text>().text = $"{GetInspectorRotationValueMethod(Joint4Contol.Instance4.transform, 3)}";
+        angleMessage[4].GetComponent<Text>().text = $"{GetAngleZ(JointControl.joint[4].transform.localRotation.eulerAngles.z, 4)}";
     }
 
     /// <summary>
@@ -41,13 +53,19 @@ public class AngleMessage : MonoBehaviour
     /// </summary>
     /// <param name="x"></param>
     /// <returns></returns>
-    public float GetAngleZ15(float value)
+    public float GetAngleZ(float value,int i)
     {
         float angle = value - 180;
-        if (angle > 0)
-            return angle - 180;
-
-        return angle + 180;
+        float ang = 0;
+        if (angle > 0) 
+            ang = angle - 180;
+        else
+            ang  = angle + 180;
+        if (jointSetAngle[i] > 0 && ang < 0)
+            return ang + 360;
+        if (jointSetAngle[i] < 0 && ang > 0)
+            return ang - 180;
+        return ang;
     }
 
 
@@ -89,9 +107,9 @@ public class AngleMessage : MonoBehaviour
     /// <param name="speed"></param>
     static public void GetAngleSpeed()
     {
-        for (int i = 0; i < JointSpeed.Length; i++)
+        for (int i = 0; i < jointSpeed.Length; i++)
         {
-            JointSpeed[i] = GetSingleAngelSpeed(i + 1);
+            jointSpeed[i] = GetSingleAngelSpeed(i + 1);
         }
     }
 
@@ -100,11 +118,11 @@ public class AngleMessage : MonoBehaviour
     /// </summary>
     static public void SetAngleSpeed()
     {
-        JointControl.joint[0].GetComponent<Joint1Contol>().j1RotationSpeedZ = JointSpeed[0];
-        JointControl.joint[1].GetComponent<Joint2Contol>().j2RotationSpeedX = JointSpeed[1];
-        JointControl.joint[2].GetComponent<Joint3Contol>().j3RotationSpeedX = JointSpeed[2];
-        JointControl.joint[3].GetComponent<Joint4Contol>().j4RotationSpeedX = JointSpeed[3];
-        JointControl.joint[4].GetComponent<Joint5Contol>().j5RotationSpeedZ = JointSpeed[4];
+        JointControl.joint[0].GetComponent<Joint1Contol>().j1RotationSpeedZ = jointSpeed[0];
+        JointControl.joint[1].GetComponent<Joint2Contol>().j2RotationSpeedX = jointSpeed[1];
+        JointControl.joint[2].GetComponent<Joint3Contol>().j3RotationSpeedX = jointSpeed[2];
+        JointControl.joint[3].GetComponent<Joint4Contol>().j4RotationSpeedX = jointSpeed[3];
+        JointControl.joint[4].GetComponent<Joint5Contol>().j5RotationSpeedZ = jointSpeed[4];
     }
 
 
@@ -124,7 +142,7 @@ public class AngleMessage : MonoBehaviour
         return null;
     }
 
-    public float GetInspectorRotationValueMethod(Transform transform)
+    public float GetInspectorRotationValueMethod(Transform transform, int i)
     {
         /*******************************
         // 获取j角度原生值
@@ -143,6 +161,10 @@ public class AngleMessage : MonoBehaviour
         tempVector3 = temp.Split(',');
         //将分割好的数据传给Vector3
         Vector3 vector3 = new Vector3(float.Parse(tempVector3[0]), float.Parse(tempVector3[1]), float.Parse(tempVector3[2]));
+        if (jointSetAngle[i] >= 0 && vector3.x < 0)
+            return 360 + vector3.x;
+        if (jointSetAngle[i] < 0 && vector3.x > 0) 
+        return vector3.x - 180;
         return vector3.x;
     }
 }
