@@ -984,7 +984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082a109562169b741b19e0119d38ba09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint1Angle: -90
+  joint1Angle: -250
   j1RotationSpeedX: 0
   j1RotationSpeedY: 0
   j1RotationSpeedZ: 30
@@ -25005,7 +25005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1298b5a633767244b981e1b5e2c50490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint2Angle: -80
+  joint2Angle: -250
   j2RotationSpeedX: 30
   j2RotationSpeedY: 0
   j2RotationSpeedZ: 0
@@ -33781,12 +33781,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a9d028123a759154eaf5132b47c7aedb,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.026176924
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a9d028123a759154eaf5132b47c7aedb,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99965733
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a9d028123a759154eaf5132b47c7aedb,
         type: 3}
@@ -33806,7 +33806,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a9d028123a759154eaf5132b47c7aedb,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a9d028123a759154eaf5132b47c7aedb,
         type: 3}

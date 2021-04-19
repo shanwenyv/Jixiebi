@@ -10,6 +10,7 @@ public class AngleMessage : MonoBehaviour
     public GameObject[] angleMessage = new GameObject[5];
     static float[] jointSpeed = new float[5];
     static float[] jointSetAngle = new float[5];
+    static float[] jointAngle = new float[5];
 
     private void Awake()
     {
@@ -25,6 +26,8 @@ public class AngleMessage : MonoBehaviour
         GetAngleSpeed();
         GetAngle();
         GetSetJointAngle();
+        setAngle();
+        ShowAngle();
     }
 
     public void GetSetJointAngle()
@@ -41,12 +44,37 @@ public class AngleMessage : MonoBehaviour
     /// </summary>
     public void GetAngle()
     {
-        angleMessage[0].GetComponent<Text>().text = $"{GetAngleZ(JointControl.joint[0].transform.localRotation.eulerAngles.z, 0)}";
-        angleMessage[1].GetComponent<Text>().text = $"{GetInspectorRotationValueMethod(Joint2Contol.Instance2.transform, 1)}";
-        angleMessage[2].GetComponent<Text>().text = $"{GetInspectorRotationValueMethod(Joint3Contol.Instance3.transform, 2)}";
-        angleMessage[3].GetComponent<Text>().text = $"{GetInspectorRotationValueMethod(Joint4Contol.Instance4.transform, 3)}";
-        angleMessage[4].GetComponent<Text>().text = $"{GetAngleZ(JointControl.joint[4].transform.localRotation.eulerAngles.z, 4)}";
+        jointAngle[0] = GetAngleZ(JointControl.joint[0].transform.localRotation.eulerAngles.z, 0);
+        jointAngle[1] = GetInspectorRotationValueMethod(Joint2Contol.Instance2.transform, 1);
+        jointAngle[2] = GetInspectorRotationValueMethod(Joint3Contol.Instance3.transform, 2);
+        jointAngle[3] = GetInspectorRotationValueMethod(Joint4Contol.Instance4.transform, 3);
+        jointAngle[4] = GetAngleZ(JointControl.joint[4].transform.localRotation.eulerAngles.z, 4);
     }
+
+    public void ShowAngle()
+    {
+        for (int i = 0; i < jointAngle.Length; i++)
+        {
+            angleMessage[i].GetComponent<Text>().text = $"{jointAngle[i]}";
+        }
+    }
+
+    /// <summary>
+    /// 四舍五入JonintAngle
+    /// </summary>
+    /// <returns></returns>
+    public void setAngle()
+    {
+        for (int i = 0; i < jointAngle.Length; i++)
+        {
+            float Angle = jointSetAngle[i] - jointAngle[i]; 
+            if (Angle <= 0.5 && Angle >= -0.5)
+            {
+                jointAngle[i] = jointSetAngle[i];
+            }
+        }
+    }
+
 
     /// <summary>
     /// 关节15的信息修正
