@@ -28,14 +28,44 @@ public class AngleMessage : MonoBehaviour
     /// </summary>
     public void GetAngle()
     {
-        angleMessage[0].GetComponent<Text>().text = $"{JointControl.joint[0].transform.localRotation.eulerAngles.z}";
+        angleMessage[0].GetComponent<Text>().text = $"{GetAngleZ15(JointControl.joint[0].transform.localRotation.eulerAngles.z)}";
         angleMessage[1].GetComponent<Text>().text = $"{JointControl.joint[1].transform.localRotation.eulerAngles.x}";
         angleMessage[2].GetComponent<Text>().text = $"{JointControl.joint[2].transform.localRotation.eulerAngles.x}";
         angleMessage[3].GetComponent<Text>().text = $"{JointControl.joint[3].transform.localRotation.eulerAngles.x}";
-        angleMessage[4].GetComponent<Text>().text = $"{JointControl.joint[4].transform.localRotation.eulerAngles.z}";
-
+        angleMessage[4].GetComponent<Text>().text = $"{GetAngleZ15(JointControl.joint[4].transform.localRotation.eulerAngles.z)}";
     }
 
+    /// <summary>
+    /// 关节15的信息修正
+    /// </summary>
+    /// <param name="x"></param>
+    /// <returns></returns>
+    public float GetAngleZ15(float x)
+    {
+        if (x > 180)
+        {
+            return (x - 360);
+        }
+        return x;
+    }
+
+    /// <summary>
+    /// 关节234的信息修正
+    /// </summary>
+    /// <param name="x"></param>
+    /// <returns></returns>
+    public float GetAngleX234(float x)
+    {
+        if (x > 90 && x < 180)
+        {
+            return 180 - x;
+        }
+        else if (x > 180)
+        {
+            return x - 360;
+        }
+        return x;
+    }
 
     /// <summary>
     /// 获取单个关节速度的值
