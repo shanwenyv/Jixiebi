@@ -64,8 +64,8 @@ public class AngleMessage : MonoBehaviour
         if (jointSetAngle[i] > 0 && ang < 0)
             return ang + 360;
         if (jointSetAngle[i] < 0 && ang > 0)
-            return ang - 180;
-        return ang;
+            return ang - 360;
+        return ang; 
     }
 
 
@@ -164,7 +164,7 @@ public class AngleMessage : MonoBehaviour
         if (jointSetAngle[i] >= 0 && vector3.x < 0)
             return 360 + vector3.x;
         if (jointSetAngle[i] < 0 && vector3.x > 0) 
-        return vector3.x - 180;
+        return vector3.x - 360;
         return vector3.x;
     }
 }
