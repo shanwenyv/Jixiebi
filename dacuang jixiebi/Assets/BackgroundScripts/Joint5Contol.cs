@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿/********************************
+ * 因为模型内部轴的原因，在做负度数运动时，关节度数是从360累加到0，所以需要校准 校准公式：实际角度=读取角度-360°
+********************************/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,13 +30,12 @@ public class Joint5Contol : MonoBehaviour
             transform.Rotate(new Vector3(j5RotationSpeedX, j5RotationSpeedY, j5RotationSpeedZ) * Time.deltaTime);//关节进行旋转
             if (joint5Angle >= 0)//当输入的角度为正数时，机械臂在正数角度运动
             {
-                print("旋转了：" + this.transform.localEulerAngles.z);
+                //print("旋转了：" + this.transform.localEulerAngles.z);
                 if (j5RotationSpeedZ > 0)
                 {
                     if (this.transform.localEulerAngles.z >= joint5Angle - 0.5)
                     {
                         j5RotationSpeedZ = 0;
-
                     }
                 }
                 else if (j5RotationSpeedZ < 0)
@@ -41,20 +43,18 @@ public class Joint5Contol : MonoBehaviour
                     if (this.transform.localEulerAngles.z <= joint5Angle + 0.5)
                     {
                         j5RotationSpeedZ = 0;
-
                     }
                 }
 
             }
             else if (joint5Angle <= 0)//当输入的角度为负数时，机械臂在负数角度运动
             {
-                print("旋转了：" + (this.transform.localEulerAngles.z - 360));
+                //print("旋转了：" + (this.transform.localEulerAngles.z - 360));
                 if (j5RotationSpeedZ > 0)
                 {
                     if ((this.transform.localEulerAngles.z - 360) >= joint5Angle - 0.5)//判断时需要校准旋转角度的度数，当校准角度大于设定角度时停止
                     {
                         j5RotationSpeedZ = 0;
-
                     }
                 }
                 else if (j5RotationSpeedZ < 0)
@@ -62,7 +62,6 @@ public class Joint5Contol : MonoBehaviour
                     if ((this.transform.localEulerAngles.z - 360) <= joint5Angle + 0.5)//判断时需要校准旋转角度的度数，当校准角度小于设定角度时停止
                     {
                         j5RotationSpeedZ = 0;
-
                     }
                 }
             }
