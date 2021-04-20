@@ -68,7 +68,7 @@ public class AngleMessage : MonoBehaviour
         for (int i = 0; i < jointAngle.Length; i++)
         {
             float Angle = jointSetAngle[i] - jointAngle[i]; 
-            if (Angle <= 0.5 && Angle >= -0.5)
+            if (Angle <= 0.6 && Angle >= -0.6)
             {
                 jointAngle[i] = jointSetAngle[i];
             }
