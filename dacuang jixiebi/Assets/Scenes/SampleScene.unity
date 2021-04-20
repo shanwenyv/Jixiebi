@@ -985,6 +985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joint1Angle: -250
+  joint1MotionOver: 0
   j1RotationSpeedX: 0
   j1RotationSpeedY: 0
   j1RotationSpeedZ: 30
@@ -6021,7 +6022,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48eea13a65984de47979bfd12d55bb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint3Angle: -90
+  joint3Angle: 160
+  joint3MotionOver: 0
   j3RotationSpeedX: 30
   j3RotationSpeedY: 0
   j3RotationSpeedZ: 0
@@ -23879,7 +23881,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32376100001d0e940b03c6c0a4c8c4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint5Angle: -30
+  joint5Angle: 270
+  joint5MotionOver: 0
   j5RotationSpeedX: 0
   j5RotationSpeedY: 0
   j5RotationSpeedZ: 30
@@ -25006,6 +25009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joint2Angle: -250
+  joint2MotionOver: 0
   j2RotationSpeedX: 30
   j2RotationSpeedY: 0
   j2RotationSpeedZ: 0
@@ -28094,7 +28098,7 @@ GameObject:
   - component: {fileID: 1605010229}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31791,7 +31795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e840927f5aa6746b4080ac48b990a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint4Angle: -90
+  joint4Angle: 80
   j4RotationSpeedX: 30
   j4RotationSpeedY: 0
   j4RotationSpeedZ: 0

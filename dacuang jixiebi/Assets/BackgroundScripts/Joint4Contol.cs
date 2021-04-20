@@ -12,7 +12,9 @@ public class Joint4Contol : MonoBehaviour
     private int a = 0;
     public static Joint4Contol Instance4;
     public float joint4Angle = 90;//关节2旋转角度
-    //关节旋转角度
+
+    public static bool joint4MotionOver = false;//如果关节完成运动，其值为1，否则为0
+
     public float j4RotationSpeedX = 30;//设定初始运动速度
     public float j4RotationSpeedY = 0;
     public float j4RotationSpeedZ = 0;
@@ -21,6 +23,7 @@ public class Joint4Contol : MonoBehaviour
     private void Awake()
     {
         Instance4 = this;                            //单例模式
+
     }
     public float GetInspectorRotationValueMethod(Transform transform)
     {
@@ -79,6 +82,7 @@ public class Joint4Contol : MonoBehaviour
                         if (GetInspectorRotationValueMethod(transform) >= joint4Angle + 0.5)
                         {
                             j4RotationSpeedX = 0;
+                            joint4MotionOver = true;
 
                         }
                     }
@@ -87,6 +91,7 @@ public class Joint4Contol : MonoBehaviour
                         if (joint4AngleAbjust >= joint4Angle + 0.5)
                         {
                             j4RotationSpeedX = 0;
+                            joint4MotionOver = true;
 
                         }
                     }
@@ -98,6 +103,7 @@ public class Joint4Contol : MonoBehaviour
                         if (GetInspectorRotationValueMethod(transform) <= joint4Angle + 0.5)
                         {
                             j4RotationSpeedX = 0;
+                            joint4MotionOver = true;
                         }
                     }
                     else if (GetInspectorRotationValueMethod(transform) < 0)//角度在180到360之间时，先通过角度校准，再进行旋转
@@ -105,6 +111,7 @@ public class Joint4Contol : MonoBehaviour
                         if (joint4AngleAbjust <= joint4Angle + 0.5)
                         {
                             j4RotationSpeedX = 0;
+                            joint4MotionOver = true;
 
                         }
                     }
@@ -119,13 +126,15 @@ public class Joint4Contol : MonoBehaviour
                         if (GetInspectorRotationValueMethod(transform) < joint4Angle)
                         {
                             j4RotationSpeedX = 0;
+                            joint4MotionOver = true;
                         }
                     }
                     else if (GetInspectorRotationValueMethod(transform) > 0)//当旋转角度在-180度到-360度时
                     {
                         if (joint4AngleAbjust < joint4Angle)
                         {
-                            j4RotationSpeedX = 0;
+                            j4RotationSpeedX = 0; 
+                            joint4MotionOver = true;
                         }
                     }
                 }
@@ -136,6 +145,7 @@ public class Joint4Contol : MonoBehaviour
                         if (GetInspectorRotationValueMethod(transform) > joint4Angle)
                         {
                             j4RotationSpeedX = 0;
+                            joint4MotionOver = true;
                         }
                     }
                     if (GetInspectorRotationValueMethod(transform) > 0)//当旋转角度在-180度到-360度时
@@ -143,6 +153,7 @@ public class Joint4Contol : MonoBehaviour
                         if (joint4AngleAbjust > joint4Angle)
                         {
                             j4RotationSpeedX = 0;
+                            joint4MotionOver = true;
                         }
                     }
                 }

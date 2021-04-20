@@ -12,7 +12,9 @@ public class Joint2Contol : MonoBehaviour
     private int a = 0;
     public static Joint2Contol Instance2;
     public float joint2Angle = 90;//关节2旋转角度
-    //关节旋转角度
+
+    public bool joint2MotionOver = false;//如果关节完成运动，其值为1，否则为0
+
     public float j2RotationSpeedX = 30;//设定初始运动速度
     public float j2RotationSpeedY = 0;
     public float j2RotationSpeedZ = 0;
@@ -79,6 +81,7 @@ public class Joint2Contol : MonoBehaviour
                         if (GetInspectorRotationValueMethod(transform) >= joint2Angle + 0.5)
                         {
                             j2RotationSpeedX = 0;
+                            joint2MotionOver = true;
 
                         }
                     }
@@ -87,6 +90,7 @@ public class Joint2Contol : MonoBehaviour
                         if (joint2AngleAbjust >= joint2Angle + 0.5)
                         {
                             j2RotationSpeedX = 0;
+                            joint2MotionOver = true;
 
                         }
                     }
@@ -98,6 +102,7 @@ public class Joint2Contol : MonoBehaviour
                         if (GetInspectorRotationValueMethod(transform) <= joint2Angle + 0.5)
                         {
                             j2RotationSpeedX = 0;
+                            joint2MotionOver = true;
                         }
                     }
                     else if (GetInspectorRotationValueMethod(transform) < 0)//角度在180到360之间时，先通过角度校准，再进行旋转
@@ -105,6 +110,7 @@ public class Joint2Contol : MonoBehaviour
                         if (joint2AngleAbjust <= joint2Angle + 0.5)
                         {
                             j2RotationSpeedX = 0;
+                            joint2MotionOver = true;
 
                         }
                     }
@@ -119,6 +125,7 @@ public class Joint2Contol : MonoBehaviour
                         if (GetInspectorRotationValueMethod(transform) < joint2Angle)
                         {
                             j2RotationSpeedX = 0;
+                            joint2MotionOver = true;
                         }
                     }
                     else if (GetInspectorRotationValueMethod(transform) > 0)//当旋转角度在-180度到-360度时
@@ -126,6 +133,7 @@ public class Joint2Contol : MonoBehaviour
                         if (joint2AngleAbjust < joint2Angle)
                         {
                             j2RotationSpeedX = 0;
+                            joint2MotionOver = true;
                         }
                     }
                 }
@@ -136,6 +144,7 @@ public class Joint2Contol : MonoBehaviour
                         if (GetInspectorRotationValueMethod(transform) > joint2Angle)
                         {
                             j2RotationSpeedX = 0;
+                            joint2MotionOver = true;
                         }
                     }
                     if (GetInspectorRotationValueMethod(transform) > 0)//当旋转角度在-180度到-360度时
@@ -143,6 +152,7 @@ public class Joint2Contol : MonoBehaviour
                         if (joint2AngleAbjust > joint2Angle)
                         {
                             j2RotationSpeedX = 0;
+                            joint2MotionOver = true;
                         }
                     }
                 }

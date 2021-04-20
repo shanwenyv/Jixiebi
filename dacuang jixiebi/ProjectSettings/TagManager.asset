@@ -11,6 +11,7 @@ TagManager:
   - Joint4
   - Joint5
   - MessagePanel
+  - Camera
   layers:
   - Default
   - TransparentFX
