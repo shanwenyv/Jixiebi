@@ -117,7 +117,11 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 563}
   m_MaxSize: {x: 22006, y: 12063}
   vertical: 0
+<<<<<<< HEAD
   controlID: 216
+=======
+  controlID: 274
+>>>>>>> 2021.4.6
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +147,11 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 563}
   m_MaxSize: {x: 4001, y: 12063}
   vertical: 1
+<<<<<<< HEAD
   controlID: 333
+=======
+  controlID: 387
+>>>>>>> 2021.4.6
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
