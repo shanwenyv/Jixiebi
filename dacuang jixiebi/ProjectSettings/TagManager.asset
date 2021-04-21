@@ -11,6 +11,7 @@ TagManager:
   - Joint4
   - Joint5
   - MessagePanel
+  - ProgrammePanel
   layers:
   - Default
   - TransparentFX
