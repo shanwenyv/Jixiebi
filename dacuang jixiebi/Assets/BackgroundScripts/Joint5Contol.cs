@@ -9,7 +9,9 @@ public class Joint5Contol : MonoBehaviour
 {
     // Start is called before the first frame update
     public float joint5Angle = 90;//关节5旋转角度
-    //关节旋转速度
+
+    public bool joint5MotionOver = false;//如果关节完成运动，其值为1，否则为0
+
     public float j5RotationSpeedX = 0;
     public float j5RotationSpeedY = 0;
     public float j5RotationSpeedZ = 30;//关节5旋转速度
@@ -36,6 +38,7 @@ public class Joint5Contol : MonoBehaviour
                     if (this.transform.localEulerAngles.z >= joint5Angle - 0.5)
                     {
                         j5RotationSpeedZ = 0;
+                        joint5MotionOver = true;
                     }
                 }
                 else if (j5RotationSpeedZ < 0)
@@ -43,6 +46,7 @@ public class Joint5Contol : MonoBehaviour
                     if (this.transform.localEulerAngles.z <= joint5Angle + 0.5)
                     {
                         j5RotationSpeedZ = 0;
+                        joint5MotionOver = true;
                     }
                 }
 
@@ -55,6 +59,7 @@ public class Joint5Contol : MonoBehaviour
                     if ((this.transform.localEulerAngles.z - 360) >= joint5Angle - 0.5)//判断时需要校准旋转角度的度数，当校准角度大于设定角度时停止
                     {
                         j5RotationSpeedZ = 0;
+                        joint5MotionOver = true;
                     }
                 }
                 else if (j5RotationSpeedZ < 0)
@@ -62,6 +67,7 @@ public class Joint5Contol : MonoBehaviour
                     if ((this.transform.localEulerAngles.z - 360) <= joint5Angle + 0.5)//判断时需要校准旋转角度的度数，当校准角度小于设定角度时停止
                     {
                         j5RotationSpeedZ = 0;
+                        joint5MotionOver = true;
                     }
                 }
             }

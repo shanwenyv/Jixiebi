@@ -1,1 +1,5 @@
+<<<<<<< HEAD
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":false,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":41.94875717163086,"y":9.102706909179688,"z":1.5612492561340333},"rotation":{"x":-0.2699105441570282,"y":-0.00809097196906805,"z":0.002268118318170309,"w":-0.9628495573997498},"size":4.21335506439209,"orthographic":false}
+=======
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":false,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":960.0,"y":540.0,"z":-50.0},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":1157.6065673828125,"orthographic":true}
+>>>>>>> 2021.4.6

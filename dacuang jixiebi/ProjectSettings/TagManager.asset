@@ -11,7 +11,11 @@ TagManager:
   - Joint4
   - Joint5
   - MessagePanel
+<<<<<<< HEAD
+  - Camera
+=======
   - ProgrammePanel
+>>>>>>> 2021.4.6
   layers:
   - Default
   - TransparentFX

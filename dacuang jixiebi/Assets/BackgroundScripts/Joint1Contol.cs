@@ -9,6 +9,7 @@ public class Joint1Contol : MonoBehaviour
 {
     public float joint1Angle = 90;//关节1旋转角度
 
+    public bool joint1MotionOver = false;//如果关节完成运动，其值为1，否则为0
     //关节旋转角度
     public float j1RotationSpeedX = 0;
     public float j1RotationSpeedY = 0;
@@ -36,6 +37,7 @@ public class Joint1Contol : MonoBehaviour
                     if (this.transform.localEulerAngles.z >= joint1Angle - 0.5)
                     {
                         j1RotationSpeedZ = 0;
+                        joint1MotionOver = true;
                     }
                 }
                 else if (j1RotationSpeedZ < 0)
@@ -43,6 +45,7 @@ public class Joint1Contol : MonoBehaviour
                     if (this.transform.localEulerAngles.z <= joint1Angle + 0.5)
                     {
                         j1RotationSpeedZ = 0;
+                        joint1MotionOver = true;
                     }
                 }
 
@@ -55,6 +58,7 @@ public class Joint1Contol : MonoBehaviour
                     if ((this.transform.localEulerAngles.z - 360) >= joint1Angle - 0.5)//判断时需要校准旋转角度的度数，当校准角度大于设定角度时停止
                     {
                         j1RotationSpeedZ = 0;
+                        joint1MotionOver = true;
                     }
                 }
                 else if (j1RotationSpeedZ < 0)
@@ -62,6 +66,7 @@ public class Joint1Contol : MonoBehaviour
                     if ((this.transform.localEulerAngles.z - 360) <= joint1Angle + 0.5)//判断时需要校准旋转角度的度数，当校准角度小于设定角度时停止
                     {
                         j1RotationSpeedZ = 0;
+                        joint1MotionOver = true;
                     }
                 }
             }

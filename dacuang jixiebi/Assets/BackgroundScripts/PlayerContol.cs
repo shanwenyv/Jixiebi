@@ -20,6 +20,14 @@ public class PlayerContol : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            GameObject.Find("Camera").GetComponent<PlayerCameraControl>().enabled = false;
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            GameObject.Find("Camera").GetComponent<PlayerCameraControl>().enabled = true;
+        }
         horizontalMove = Input.GetAxis("Horizontal") * moveSpeed;
         verticalMove = Input.GetAxis("Vertical") * moveSpeed;
 
