@@ -16,18 +16,23 @@ public class MainPanel : BasePanel
     Button messageButton;
     Button setButton;
     Button pasueButton;
-    
+    Button programmeButton;
+    Button automaticButton;
+    Button initializeButton;
+
     public override void OnEnter()
     {
         pasueButton = UITool.GetOrAddComponentInChildren<Button>("PauseAndResumeButton");
         exitButton = UITool.GetOrAddComponentInChildren<Button>("ExitButton");
         messageButton = UITool.GetOrAddComponentInChildren<Button>("MessageButton");
         setButton = UITool.GetOrAddComponentInChildren<Button>("SetButton");
+        programmeButton = UITool.GetOrAddComponentInChildren<Button>("ProgrammeButton");
+        automaticButton = UITool.GetOrAddComponentInChildren<Button>("AutomaticButton");
+        initializeButton = UITool.GetOrAddComponentInChildren<Button>("InitializeButton");
 
         UITool.GetOrAddComponentInChildren<Button>("ExitButton").onClick.AddListener(() =>
         {
             GameRoot.Instance.SceneSystem.SetScene(new StartScene());
-            Debug.Log("MAINSCENE中Exit按钮被点击");
         });
         UITool.GetOrAddComponentInChildren<Button>("MessageButton").onClick.AddListener(() =>
         {
@@ -44,6 +49,10 @@ public class MainPanel : BasePanel
         UITool.GetOrAddComponentInChildren<Button>("PauseAndResumeButton").onClick.AddListener(() =>
         {
             PauseAndResume();
+        });
+        UITool.GetOrAddComponentInChildren<Button>("ProgrammeButton").onClick.AddListener(() =>
+        {
+            PanelManager.Push(new ProgrammePanel());
         });
     }
 
@@ -78,6 +87,9 @@ public class MainPanel : BasePanel
             messageButton.gameObject.SetActive(false);
             setButton.gameObject.SetActive(false);
             pasueButton.gameObject.SetActive(false);
+            programmeButton.gameObject.SetActive(false);
+            automaticButton.gameObject.SetActive(false);
+            initializeButton.gameObject.SetActive(false);
             UITool.GetOrAddComponentInChildren<Text>("ShowAndhide").text = "显示图标";
         }
         else
@@ -86,6 +98,9 @@ public class MainPanel : BasePanel
             messageButton.gameObject.SetActive(true);
             setButton.gameObject.SetActive(true);
             pasueButton.gameObject.SetActive(true);
+            programmeButton.gameObject.SetActive(true);
+            automaticButton.gameObject.SetActive(true);
+            initializeButton.gameObject.SetActive(true);
             UITool.GetOrAddComponentInChildren<Text>("ShowAndhide").text = "隐藏图标";
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class AngleMessage : MonoBehaviour
 {
-    public GameObject meui;
+    public  GameObject meui;
     public GameObject[] angleMessage = new GameObject[5];
     static float[] jointSpeed = new float[5];
     static float[] jointSetAngle = new float[5];
@@ -195,4 +195,6 @@ public class AngleMessage : MonoBehaviour
         return vector3.x - 360;
         return vector3.x;
     }
+
+
 }
