@@ -10,7 +10,9 @@ public class Joint5Contol : MonoBehaviour
     // Start is called before the first frame update
     public float joint5Angle = 90;//关节5旋转角度
 
-    public bool joint5MotionOver = false;//如果关节完成运动，其值为1，否则为0
+    public static bool joint5Automatic = false;//关节5自动运行判定，否停止，真开始
+
+    public static  bool joint5MotionOver = false;//如果关节完成运动，其值为1，否则为0
 
     public float j5RotationSpeedX = 0;
     public float j5RotationSpeedY = 0;
@@ -23,11 +25,10 @@ public class Joint5Contol : MonoBehaviour
         if (joint5Angle < 0)
             j5RotationSpeedZ = -30;
     }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Keypad5) || Input.GetKey(KeyCode.Return))
+        if (Input.GetKey(KeyCode.Keypad5) || Input.GetKey(KeyCode.Return) || joint5Automatic == true)
         {
             transform.Rotate(new Vector3(j5RotationSpeedX, j5RotationSpeedY, j5RotationSpeedZ) * Time.deltaTime);//关节进行旋转
             if (joint5Angle >= 0)//当输入的角度为正数时，机械臂在正数角度运动
@@ -39,6 +40,7 @@ public class Joint5Contol : MonoBehaviour
                     {
                         j5RotationSpeedZ = 0;
                         joint5MotionOver = true;
+                        joint5Automatic = false;
                     }
                 }
                 else if (j5RotationSpeedZ < 0)
@@ -47,6 +49,7 @@ public class Joint5Contol : MonoBehaviour
                     {
                         j5RotationSpeedZ = 0;
                         joint5MotionOver = true;
+                        joint5Automatic = false;
                     }
                 }
 
@@ -60,6 +63,7 @@ public class Joint5Contol : MonoBehaviour
                     {
                         j5RotationSpeedZ = 0;
                         joint5MotionOver = true;
+                        joint5Automatic = false;
                     }
                 }
                 else if (j5RotationSpeedZ < 0)
@@ -68,6 +72,7 @@ public class Joint5Contol : MonoBehaviour
                     {
                         j5RotationSpeedZ = 0;
                         joint5MotionOver = true;
+                        joint5Automatic = false;
                     }
                 }
             }
