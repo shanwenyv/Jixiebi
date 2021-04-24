@@ -15,10 +15,7 @@ public class StartPanel : BasePanel
     {
         UITool.GetOrAddComponentInChildren<Button>("PeopleButton").onClick.AddListener(() =>
         {
-            //点击事件可以写在这里面
-            Debug.Log("开始按钮被点了");
             PanelManager.Push(new PeoplePanel());
-            //PanelManager.Push(new BasePanel);
         });
         UITool.GetOrAddComponentInChildren<Button>("StartButton").onClick.AddListener(() =>
         {

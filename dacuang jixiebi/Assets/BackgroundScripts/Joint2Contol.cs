@@ -174,7 +174,7 @@ public class Joint2Contol : MonoBehaviour
             j2RotationSpeedX = 30;//按下小键盘回车，重置速度初始值
             joint2SpeedAbjust = 0;//重置速度中判断角度调整值
             joint2AngleAbjust = 0;//重置旋转角度调整值
-            if (joint2Angle > 0)
+            if (joint2Angle >= 0)
             {
                 if (GetInspectorRotationValueMethod(transform) < 0)//如果物体角度大于180度，则校准角度
                 {
@@ -191,7 +191,7 @@ public class Joint2Contol : MonoBehaviour
                     j2RotationSpeedX = -j2RotationSpeedX;
                 }
             }
-            else if (joint2Angle < 0)
+            else if (joint2Angle <= 0)
             {
                 j2RotationSpeedX = -30;
                 if (GetInspectorRotationValueMethod(transform) > 0)//如果物体角度小于-180度，则校准角度

@@ -9,8 +9,8 @@ public class ProgrammePanel : BasePanel
     /// <summary>
     /// 用于存储各个状态的的关节设定值
     /// </summary>
-    public static float[,] stateAngle = new float[6, 6]{ {1, 1, 1, 1, 1, 1 } , {2, 2, 2, 2, 2, 2} , {3, 3, 3, 3, 3, 3},
-                                                         {4, 4, 4, 4, 4, 4 } , {5, 5, 5, 5, 5, 5} , {6, 6, 6, 6, 6, 6} };
+    public static float[,] stateAngle = new float[6, 5]{ {1, 1, 1, 1, 1 } , {2, 2, 2, 2, 2} , {3, 3, 3, 3, 3},
+                                                         {4, 4, 4, 4, 4 } , {5, 5, 5, 5, 5} , {6, 6, 6, 6, 6} };
     public static float[] textAngle = new float[5];
 
     static readonly string path = "Perfabs/UI/Panel/ProgrammePanel";
@@ -26,6 +26,7 @@ public class ProgrammePanel : BasePanel
         {
             GetTextAngle();
             ApplyStateAngle();
+            ProJointAngle.ShowStateAngle();
         });
         UITool.GetOrAddComponentInChildren<Button>("DeleteButton").onClick.AddListener(() =>
         {
