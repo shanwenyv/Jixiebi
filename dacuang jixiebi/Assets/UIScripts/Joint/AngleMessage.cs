@@ -89,7 +89,7 @@ public class AngleMessage : MonoBehaviour
             ang = angle - 180;
         else
             ang  = angle + 180;
-        if (jointSetAngle[i] > 0 && ang < 0)
+        if (jointSetAngle[i] >= 0 && ang < 0)
             return ang + 360;
         if (jointSetAngle[i] < 0 && ang > 0)
             return ang - 360;
