@@ -23,7 +23,9 @@ public class SettingPanel : BasePanel
                 angle[i] = int.Parse(UITool.GetOrAddComponentInChildren<Text>($"InputJoint{i + 1}Angle").text);
             }
             //angle[0], angle[1],angle[2],angle[3],angle[4]
+            JointInitiaze.jointIntiazeBool = false;
             JointControl.SetJointAngle(angle);
+            JointControl.ResetAngles();
         });
     }
 }

@@ -77,5 +77,17 @@ public class JointControl : MonoBehaviour
             Angles = false;
         }
     }
+
+    /// <summary>
+    /// 重置所有设置角度
+    /// </summary>
+    public static void ResetAngles()
+    {
+        joint[0].GetComponent<Joint1Contol>().Joint1Reset();
+        joint[1].GetComponent<Joint2Contol>().Joint2Reset();
+        joint[2].GetComponent<Joint3Contol>().Joint3Reset();
+        joint[3].GetComponent<Joint4Contol>().Joint4Reset();
+        joint[4].GetComponent<Joint5Contol>().Joint5Reset();
+    }
 }
 
