@@ -25,6 +25,7 @@ public class Joint4Contol : MonoBehaviour
 
     public void Joint4Reset()//重置关节代码中的各项参数
     {
+        joint4MotionOver = false;
         j4RotationSpeedX = 30;//按下小键盘回车，重置速度初始值
         joint4SpeedAbjust = 0;//重置速度中判断角度调整值
         joint4AngleAbjust = 0;//重置旋转角度调整值

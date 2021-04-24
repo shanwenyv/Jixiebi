@@ -28,6 +28,7 @@ public class Joint1Contol : MonoBehaviour
     // Update is called once per frame
      public void Joint1Reset()////重置关节代码中的各项参数
     {
+        joint1MotionOver = false;
         j1RotationSpeedZ = 30;//初始化速度
         if (joint1Angle >= 0)//判断机械臂是否在做正数角度运动
         {
