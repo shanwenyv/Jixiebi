@@ -22,6 +22,47 @@ public class Joint3Contol : MonoBehaviour
     public float j3RotationSpeedZ = 0;
     public float joint3AngleAbjust = 0;//在运动代码部分，当旋转角度大于180度时，校准度数
     public float joint3SpeedAbjust = 0;//在重置速度部分，当旋转角度大于180度时，校准度数
+
+    public void Joint3Reset()//重置关节代码中的各项参数
+    {
+        j3RotationSpeedX = 30;//按下小键盘回车，重置速度初始值
+        joint3SpeedAbjust = 0;//重置速度中判断角度调整值
+        joint3AngleAbjust = 0;//重置旋转角度调整值
+        if (joint3Angle >= 0)
+        {
+            if (GetInspectorRotationValueMethod(transform) < 0)//如果物体角度大于180度，则校准角度
+            {
+                t = 1;
+                joint3SpeedAbjust = 360 + GetInspectorRotationValueMethod(transform);
+
+            }
+            if (joint3Angle < GetInspectorRotationValueMethod(transform) - 0.5)//物体大于180度时，校准角度
+            {
+                j3RotationSpeedX = -j3RotationSpeedX;
+            }
+            else if (joint3Angle < joint3SpeedAbjust)
+            {
+                j3RotationSpeedX = -j3RotationSpeedX;
+            }
+        }
+        else if (joint3Angle <= 0)
+        {
+            j3RotationSpeedX = -30;
+            if (GetInspectorRotationValueMethod(transform) > 0)//如果物体角度小于-180度，则校准角度
+            {
+                joint3SpeedAbjust = GetInspectorRotationValueMethod(transform) - 360;//校准角度
+            }
+            if (joint3SpeedAbjust < joint3Angle)
+            {
+                j3RotationSpeedX = -j3RotationSpeedX;
+            }
+            if (joint3Angle > GetInspectorRotationValueMethod(transform))
+            {
+                j3RotationSpeedX = -j3RotationSpeedX;
+            }
+        }
+    }
+
     private void Awake()
     {
         Instance3 = this;                            //单例模式
@@ -171,42 +212,7 @@ public class Joint3Contol : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.KeypadEnter))
         {
-            j3RotationSpeedX = 30;//按下小键盘回车，重置速度初始值
-            joint3SpeedAbjust = 0;//重置速度中判断角度调整值
-            joint3AngleAbjust = 0;//重置旋转角度调整值
-            if (joint3Angle >= 0)
-            {
-                if (GetInspectorRotationValueMethod(transform) < 0)//如果物体角度大于180度，则校准角度
-                {
-                    t = 1;
-                    joint3SpeedAbjust = 360 + GetInspectorRotationValueMethod(transform);
-
-                }
-                if (joint3Angle < GetInspectorRotationValueMethod(transform) - 0.5)//物体大于180度时，校准角度
-                {
-                    j3RotationSpeedX = -j3RotationSpeedX;
-                }
-                else if (joint3Angle < joint3SpeedAbjust)
-                {
-                    j3RotationSpeedX = -j3RotationSpeedX;
-                }
-            }
-            else if (joint3Angle <= 0)
-            {
-                j3RotationSpeedX = -30;
-                if (GetInspectorRotationValueMethod(transform) > 0)//如果物体角度小于-180度，则校准角度
-                {
-                    joint3SpeedAbjust = GetInspectorRotationValueMethod(transform) - 360;//校准角度
-                }
-                if (joint3SpeedAbjust < joint3Angle)
-                {
-                    j3RotationSpeedX = -j3RotationSpeedX;
-                }
-                if (joint3Angle > GetInspectorRotationValueMethod(transform))
-                {
-                    j3RotationSpeedX = -j3RotationSpeedX;
-                }
-            }
+            Joint3Reset();
         }
     }
 }

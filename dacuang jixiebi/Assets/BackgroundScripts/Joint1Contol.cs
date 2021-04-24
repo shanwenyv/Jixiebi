@@ -26,6 +26,25 @@ public class Joint1Contol : MonoBehaviour
             j1RotationSpeedZ = -30;
     }
     // Update is called once per frame
+     public void Joint1Reset()////重置关节代码中的各项参数
+    {
+        j1RotationSpeedZ = 30;//初始化速度
+        if (joint1Angle >= 0)//判断机械臂是否在做正数角度运动
+        {
+            if (joint1Angle < this.transform.localEulerAngles.z + 0.5)//机械臂在做正数角度运动时，如果输入度数小于当前度数，则速度值为负
+            {
+                j1RotationSpeedZ = -j1RotationSpeedZ;
+            }
+        }
+        else if (joint1Angle <= 0)//判断机械臂是否在做负数角度运动
+        {
+            if ((this.transform.localEulerAngles.z - 360) >= joint1Angle)//先校准角度，机械臂在做负数角度运动时，如果输入度数小于当前度数，则速度值为负
+            {
+                j1RotationSpeedZ = -30;
+            }
+        }
+    }
+
     void Update()
     {
         if(JointInitiaze.jointIntiazeBool == true)//初始化机械臂关节1角度
@@ -84,21 +103,7 @@ public class Joint1Contol : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.KeypadEnter))//对各项参数进行初始化
         {
-            j1RotationSpeedZ = 30;//初始化速度
-            if (joint1Angle >= 0)//判断机械臂是否在做正数角度运动
-            {
-                if (joint1Angle < this.transform.localEulerAngles.z + 0.5)//机械臂在做正数角度运动时，如果输入度数小于当前度数，则速度值为负
-                {
-                    j1RotationSpeedZ = -j1RotationSpeedZ;
-                }
-            }
-            else if (joint1Angle <= 0)//判断机械臂是否在做负数角度运动
-            {
-                if ((this.transform.localEulerAngles.z - 360) >= joint1Angle)//先校准角度，机械臂在做负数角度运动时，如果输入度数小于当前度数，则速度值为负
-                {
-                    j1RotationSpeedZ = -30;
-                }
-            }
+            Joint1Reset();
         }
     }
 }
