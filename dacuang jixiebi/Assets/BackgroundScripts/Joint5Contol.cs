@@ -20,6 +20,7 @@ public class Joint5Contol : MonoBehaviour
 
     public void Joint5Reset()//重置关节代码中的各项参数
     {
+        joint5MotionOver = false;
         j5RotationSpeedZ = 30;//初始化速度
         if (joint5Angle >= 0)//判断机械臂是否在做正数角度运动
         {

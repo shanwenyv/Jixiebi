@@ -6051,7 +6051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48eea13a65984de47979bfd12d55bb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint3Angle: 125
+  joint3Angle: 50
   j3RotationSpeedX: 30
   j3RotationSpeedY: 0
   j3RotationSpeedZ: 0
@@ -13923,7 +13923,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806208385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.35, y: 2.22, z: 4.13}
+  m_LocalPosition: {x: 50.53, y: 1.01, z: 1.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -25035,7 +25035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1298b5a633767244b981e1b5e2c50490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint2Angle: 125
+  joint2Angle: 70
   j2RotationSpeedX: 30
   j2RotationSpeedY: 0
   j2RotationSpeedZ: 0

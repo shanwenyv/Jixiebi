@@ -25,6 +25,7 @@ public class Joint2Contol : MonoBehaviour
 
     public void Joint2Reset()//重置关节代码中的各项参数
     {
+        joint2MotionOver = false;
         j2RotationSpeedX = 30;//按下小键盘回车，重置速度初始值
         joint2SpeedAbjust = 0;//重置速度中判断角度调整值
         joint2AngleAbjust = 0;//重置旋转角度调整值
