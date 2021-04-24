@@ -22,6 +22,47 @@ public class Joint4Contol : MonoBehaviour
     public float j4RotationSpeedZ = 0;
     public float joint4AngleAbjust = 0;//在运动代码部分，当旋转角度大于180度时，校准度数
     public float joint4SpeedAbjust = 0;//在重置速度部分，当旋转角度大于180度时，校准度数
+
+    public void Joint4Reset()//重置关节代码中的各项参数
+    {
+        j4RotationSpeedX = 30;//按下小键盘回车，重置速度初始值
+        joint4SpeedAbjust = 0;//重置速度中判断角度调整值
+        joint4AngleAbjust = 0;//重置旋转角度调整值
+        if (joint4Angle >= 0)
+        {
+            if (GetInspectorRotationValueMethod(transform) < 0)//如果物体角度大于180度，则校准角度
+            {
+                t = 1;
+                joint4SpeedAbjust = 360 + GetInspectorRotationValueMethod(transform);
+
+            }
+            if (joint4Angle < GetInspectorRotationValueMethod(transform) - 0.5)//物体大于180度时，校准角度
+            {
+                j4RotationSpeedX = -j4RotationSpeedX;
+            }
+            else if (joint4Angle < joint4SpeedAbjust)
+            {
+                j4RotationSpeedX = -j4RotationSpeedX;
+            }
+        }
+        else if (joint4Angle <= 0)
+        {
+            j4RotationSpeedX = -30;
+            if (GetInspectorRotationValueMethod(transform) > 0)//如果物体角度小于-180度，则校准角度
+            {
+                joint4SpeedAbjust = GetInspectorRotationValueMethod(transform) - 360;//校准角度
+            }
+            if (joint4SpeedAbjust < joint4Angle)
+            {
+                j4RotationSpeedX = -j4RotationSpeedX;
+            }
+            if (joint4Angle > GetInspectorRotationValueMethod(transform))
+            {
+                j4RotationSpeedX = -j4RotationSpeedX;
+            }
+        }
+    }
+
     private void Awake()
     {
         Instance4 = this;                            //单例模式
@@ -172,42 +213,7 @@ public class Joint4Contol : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.KeypadEnter))
         {
-            j4RotationSpeedX = 30;//按下小键盘回车，重置速度初始值
-            joint4SpeedAbjust = 0;//重置速度中判断角度调整值
-            joint4AngleAbjust = 0;//重置旋转角度调整值
-            if (joint4Angle >= 0)
-            {
-                if (GetInspectorRotationValueMethod(transform) < 0)//如果物体角度大于180度，则校准角度
-                {
-                    t = 1;
-                    joint4SpeedAbjust = 360 + GetInspectorRotationValueMethod(transform);
-
-                }
-                if (joint4Angle < GetInspectorRotationValueMethod(transform) - 0.5)//物体大于180度时，校准角度
-                {
-                    j4RotationSpeedX = -j4RotationSpeedX;
-                }
-                else if (joint4Angle < joint4SpeedAbjust)
-                {
-                    j4RotationSpeedX = -j4RotationSpeedX;
-                }
-            }
-            else if (joint4Angle <= 0)
-            {
-                j4RotationSpeedX = -30;
-                if (GetInspectorRotationValueMethod(transform) > 0)//如果物体角度小于-180度，则校准角度
-                {
-                    joint4SpeedAbjust = GetInspectorRotationValueMethod(transform) - 360;//校准角度
-                }
-                if (joint4SpeedAbjust < joint4Angle)
-                {
-                    j4RotationSpeedX = -j4RotationSpeedX;
-                }
-                if (joint4Angle > GetInspectorRotationValueMethod(transform))
-                {
-                    j4RotationSpeedX = -j4RotationSpeedX;
-                }
-            }
+            Joint4Reset();
         }
     }
 }
