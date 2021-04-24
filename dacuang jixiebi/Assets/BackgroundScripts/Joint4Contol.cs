@@ -56,7 +56,11 @@ public class Joint4Contol : MonoBehaviour
 
     void Update()
     {
-        print("旋转了" + GetInspectorRotationValueMethod(transform));
+        if (JointInitiaze.jointIntiazeBool == true)//初始化机械臂关节4角度
+        {
+            joint4Angle = 0;
+        }
+        //print("旋转了" + GetInspectorRotationValueMethod(transform));
         float currentRotateX = transform.eulerAngles.x;
         if (currentRotateX > 180)
         {
@@ -171,7 +175,7 @@ public class Joint4Contol : MonoBehaviour
             j4RotationSpeedX = 30;//按下小键盘回车，重置速度初始值
             joint4SpeedAbjust = 0;//重置速度中判断角度调整值
             joint4AngleAbjust = 0;//重置旋转角度调整值
-            if (joint4Angle > 0)
+            if (joint4Angle >= 0)
             {
                 if (GetInspectorRotationValueMethod(transform) < 0)//如果物体角度大于180度，则校准角度
                 {
@@ -188,7 +192,7 @@ public class Joint4Contol : MonoBehaviour
                     j4RotationSpeedX = -j4RotationSpeedX;
                 }
             }
-            else if (joint4Angle < 0)
+            else if (joint4Angle <= 0)
             {
                 j4RotationSpeedX = -30;
                 if (GetInspectorRotationValueMethod(transform) > 0)//如果物体角度小于-180度，则校准角度

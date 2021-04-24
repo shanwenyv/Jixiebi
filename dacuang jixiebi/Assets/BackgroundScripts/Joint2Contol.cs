@@ -55,7 +55,11 @@ public class Joint2Contol : MonoBehaviour
 
     void Update()
     {
-        print("旋转了" + GetInspectorRotationValueMethod(transform));
+        if (JointInitiaze.jointIntiazeBool == true)//初始化机械臂关节2角度
+        {
+            joint2Angle = 0;
+        }
+        //print("旋转了" + GetInspectorRotationValueMethod(transform));
         float currentRotateX = transform.eulerAngles.x;
         if (currentRotateX > 180)
         {

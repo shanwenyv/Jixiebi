@@ -55,7 +55,11 @@ public class Joint3Contol : MonoBehaviour
 
     void Update()
     {
-        print("旋转了" + GetInspectorRotationValueMethod(transform));
+        if (JointInitiaze.jointIntiazeBool == true)//初始化机械臂关节3角度
+        {
+            joint3Angle = 0;
+        }
+        //print("旋转了" + GetInspectorRotationValueMethod(transform));
         float currentRotateX = transform.eulerAngles.x;
         if (currentRotateX > 180)
         {
@@ -170,7 +174,7 @@ public class Joint3Contol : MonoBehaviour
             j3RotationSpeedX = 30;//按下小键盘回车，重置速度初始值
             joint3SpeedAbjust = 0;//重置速度中判断角度调整值
             joint3AngleAbjust = 0;//重置旋转角度调整值
-            if (joint3Angle > 0)
+            if (joint3Angle >= 0)
             {
                 if (GetInspectorRotationValueMethod(transform) < 0)//如果物体角度大于180度，则校准角度
                 {
@@ -187,7 +191,7 @@ public class Joint3Contol : MonoBehaviour
                     j3RotationSpeedX = -j3RotationSpeedX;
                 }
             }
-            else if (joint3Angle < 0)
+            else if (joint3Angle <= 0)
             {
                 j3RotationSpeedX = -30;
                 if (GetInspectorRotationValueMethod(transform) > 0)//如果物体角度小于-180度，则校准角度

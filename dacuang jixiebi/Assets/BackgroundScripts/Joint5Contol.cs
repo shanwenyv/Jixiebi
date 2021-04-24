@@ -28,6 +28,10 @@ public class Joint5Contol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (JointInitiaze.jointIntiazeBool == true)//初始化机械臂关节5角度
+        {
+            joint5Angle = 0;
+        }
         if (Input.GetKey(KeyCode.Keypad5) || Input.GetKey(KeyCode.Return) || joint5Automatic == true)
         {
             transform.Rotate(new Vector3(j5RotationSpeedX, j5RotationSpeedY, j5RotationSpeedZ) * Time.deltaTime);//关节进行旋转
