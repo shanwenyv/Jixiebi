@@ -54,6 +54,14 @@ public class MainPanel : BasePanel
         {
             PanelManager.Push(new ProgrammePanel());
         });
+        UITool.GetOrAddComponentInChildren<Button>("InitializeButton").onClick.AddListener(() =>
+        {
+            JointInitiaze.Initiaze();
+        });
+        UITool.GetOrAddComponentInChildren<Button>("AutomaticButton").onClick.AddListener(() =>
+        {
+            JointControl.automatic = true;
+        });
     }
 
     /// <summary>

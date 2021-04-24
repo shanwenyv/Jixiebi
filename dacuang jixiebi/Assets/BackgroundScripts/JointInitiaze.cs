@@ -9,7 +9,7 @@ public class JointInitiaze : MonoBehaviour
 
     public static bool jointIntiazeStart = false;//按钮按下检测
 
-    static void Initiaze()//机械臂初始化方法
+    public static void Initiaze()//机械臂初始化方法
     {
         jointIntiazeBool = true;
         return;
