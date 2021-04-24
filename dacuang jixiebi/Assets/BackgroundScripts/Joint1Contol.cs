@@ -9,13 +9,15 @@ public class Joint1Contol : MonoBehaviour
 {
     public float joint1Angle = 90;//关节1旋转角度
 
-    public bool joint1MotionOver = false;//如果关节完成运动，其值为1，否则为0
+    public static bool joint1Automatic = false;//关节1自动运行判定，否停止，真开始
+
+    public static bool joint1MotionOver = false;//如果关节完成运动，其值为1，否则为0
+
+    //static public bool joint1InitizeReturn = false;
     //关节旋转角度
     public float j1RotationSpeedX = 0;
     public float j1RotationSpeedY = 0;
     public float j1RotationSpeedZ = 30;//关节1的旋转速度
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,12 @@ public class Joint1Contol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Keypad1) || Input.GetKey(KeyCode.Return))
+        if(JointInitiaze.jointIntiazeBool == true)//初始化机械臂关节1角度
+        {
+            joint1Angle = 0;
+            //joint1InitizeReturn = true;
+        }
+        if (Input.GetKey(KeyCode.Keypad1) || Input.GetKey(KeyCode.Return) || joint1Automatic == true)
         {
             transform.Rotate(new Vector3(j1RotationSpeedX, j1RotationSpeedY, j1RotationSpeedZ) * Time.deltaTime);//关节进行旋转
             if (joint1Angle >= 0)//当输入的角度为正数时，机械臂在正数角度运动
@@ -38,6 +45,7 @@ public class Joint1Contol : MonoBehaviour
                     {
                         j1RotationSpeedZ = 0;
                         joint1MotionOver = true;
+                        joint1Automatic = false;
                     }
                 }
                 else if (j1RotationSpeedZ < 0)
@@ -46,6 +54,7 @@ public class Joint1Contol : MonoBehaviour
                     {
                         j1RotationSpeedZ = 0;
                         joint1MotionOver = true;
+                        joint1Automatic = false;
                     }
                 }
 
@@ -59,6 +68,7 @@ public class Joint1Contol : MonoBehaviour
                     {
                         j1RotationSpeedZ = 0;
                         joint1MotionOver = true;
+                        joint1Automatic = false;
                     }
                 }
                 else if (j1RotationSpeedZ < 0)
@@ -67,6 +77,7 @@ public class Joint1Contol : MonoBehaviour
                     {
                         j1RotationSpeedZ = 0;
                         joint1MotionOver = true;
+                        joint1Automatic = false;
                     }
                 }
             }

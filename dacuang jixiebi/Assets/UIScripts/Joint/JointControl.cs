@@ -31,5 +31,5 @@ public class JointControl : MonoBehaviour
         joint[3].GetComponent<Joint4Contol>().joint4Angle = jointAngle[3];
         joint[4].GetComponent<Joint5Contol>().joint5Angle = jointAngle[4];
     }
-}
+ }
 

@@ -13,7 +13,9 @@ public class Joint3Contol : MonoBehaviour
     public static Joint3Contol Instance3;
     public float joint3Angle = 90;//关节2旋转角度
 
-    public bool joint3MotionOver = false;//如果关节完成运动，其值为1，否则为0
+    public static bool joint3Automatic = false;//关节3自动运行判定，否停止，真开始
+
+    public static bool joint3MotionOver = false;//如果关节完成运动，其值为1，否则为0
 
     public float j3RotationSpeedX = 30;//设定初始运动速度
     public float j3RotationSpeedY = 0;
@@ -53,13 +55,17 @@ public class Joint3Contol : MonoBehaviour
 
     void Update()
     {
-        print("旋转了" + GetInspectorRotationValueMethod(transform));
+        if (JointInitiaze.jointIntiazeBool == true)//初始化机械臂关节3角度
+        {
+            joint3Angle = 0;
+        }
+        //print("旋转了" + GetInspectorRotationValueMethod(transform));
         float currentRotateX = transform.eulerAngles.x;
         if (currentRotateX > 180)
         {
             currentRotateX = currentRotateX - 360;//这样-5度还是-5度 而不是355！
         }
-        if (Input.GetKey(KeyCode.Keypad3) || Input.GetKey(KeyCode.Return))
+        if (Input.GetKey(KeyCode.Keypad3) || Input.GetKey(KeyCode.Return) || joint3Automatic == true)
         {
             transform.Rotate(new Vector3(j3RotationSpeedX, j3RotationSpeedY, j3RotationSpeedZ) * Time.deltaTime);
             if (GetInspectorRotationValueMethod(transform) < 0 && joint3Angle > 0)//如果做正数角度旋转且旋转角度大于180度，则矫正角度到真实角度
@@ -82,6 +88,7 @@ public class Joint3Contol : MonoBehaviour
                         {
                             j3RotationSpeedX = 0;
                             joint3MotionOver = true;
+                            joint3Automatic = false;
                         }
                     }
                     else if (GetInspectorRotationValueMethod(transform) < 0)//角度在180到360之间时，先通过角度校准，再进行旋转
@@ -90,6 +97,7 @@ public class Joint3Contol : MonoBehaviour
                         {
                             j3RotationSpeedX = 0;
                             joint3MotionOver = true;
+                            joint3Automatic = false;
                         }
                     }
                 }
@@ -101,6 +109,7 @@ public class Joint3Contol : MonoBehaviour
                         {
                             j3RotationSpeedX = 0;
                             joint3MotionOver = true;
+                            joint3Automatic = false;
                         }
                     }
                     else if (GetInspectorRotationValueMethod(transform) < 0)//角度在180到360之间时，先通过角度校准，再进行旋转
@@ -109,7 +118,7 @@ public class Joint3Contol : MonoBehaviour
                         {
                             j3RotationSpeedX = 0;
                             joint3MotionOver = true;
-
+                            joint3Automatic = false;
                         }
                     }
                 }
@@ -124,6 +133,7 @@ public class Joint3Contol : MonoBehaviour
                         {
                             j3RotationSpeedX = 0;
                             joint3MotionOver = true;
+                            joint3Automatic = false;
                         }
                     }
                     else if (GetInspectorRotationValueMethod(transform) > 0)//当旋转角度在-180度到-360度时
@@ -132,6 +142,7 @@ public class Joint3Contol : MonoBehaviour
                         {
                             j3RotationSpeedX = 0;
                             joint3MotionOver = true;
+                            joint3Automatic = false;
                         }
                     }
                 }
@@ -143,6 +154,7 @@ public class Joint3Contol : MonoBehaviour
                         {
                             j3RotationSpeedX = 0;
                             joint3MotionOver = true;
+                            joint3Automatic = false;
                         }
                     }
                     if (GetInspectorRotationValueMethod(transform) > 0)//当旋转角度在-180度到-360度时
@@ -151,6 +163,7 @@ public class Joint3Contol : MonoBehaviour
                         {
                             j3RotationSpeedX = 0;
                             joint3MotionOver = true;
+                            joint3Automatic = false;
                         }
                     }
                 }
@@ -161,7 +174,7 @@ public class Joint3Contol : MonoBehaviour
             j3RotationSpeedX = 30;//按下小键盘回车，重置速度初始值
             joint3SpeedAbjust = 0;//重置速度中判断角度调整值
             joint3AngleAbjust = 0;//重置旋转角度调整值
-            if (joint3Angle > 0)
+            if (joint3Angle >= 0)
             {
                 if (GetInspectorRotationValueMethod(transform) < 0)//如果物体角度大于180度，则校准角度
                 {
@@ -178,7 +191,7 @@ public class Joint3Contol : MonoBehaviour
                     j3RotationSpeedX = -j3RotationSpeedX;
                 }
             }
-            else if (joint3Angle < 0)
+            else if (joint3Angle <= 0)
             {
                 j3RotationSpeedX = -30;
                 if (GetInspectorRotationValueMethod(transform) > 0)//如果物体角度小于-180度，则校准角度

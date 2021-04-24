@@ -13,7 +13,9 @@ public class Joint2Contol : MonoBehaviour
     public static Joint2Contol Instance2;
     public float joint2Angle = 90;//关节2旋转角度
 
-    public bool joint2MotionOver = false;//如果关节完成运动，其值为1，否则为0
+    public static bool joint2Automatic = false;//关节2自动运行判定，否停止，真开始
+
+    public static bool joint2MotionOver = false;//如果关节完成运动，其值为1，否则为0
 
     public float j2RotationSpeedX = 30;//设定初始运动速度
     public float j2RotationSpeedY = 0;
@@ -53,13 +55,17 @@ public class Joint2Contol : MonoBehaviour
 
     void Update()
     {
-        print("旋转了" + GetInspectorRotationValueMethod(transform));
+        if (JointInitiaze.jointIntiazeBool == true)//初始化机械臂关节2角度
+        {
+            joint2Angle = 0;
+        }
+        //print("旋转了" + GetInspectorRotationValueMethod(transform));
         float currentRotateX = transform.eulerAngles.x;
         if (currentRotateX > 180)
         {
             currentRotateX = currentRotateX - 360;//这样-5度还是-5度 而不是355！
         }
-        if (Input.GetKey(KeyCode.Keypad2) || Input.GetKey(KeyCode.Return))
+        if (Input.GetKey(KeyCode.Keypad2) || Input.GetKey(KeyCode.Return) || joint2Automatic == true)
         {
             transform.Rotate(new Vector3(j2RotationSpeedX, j2RotationSpeedY, j2RotationSpeedZ) * Time.deltaTime);
             if (GetInspectorRotationValueMethod(transform) < 0 && joint2Angle > 0)//如果做正数角度旋转且旋转角度大于180度，则矫正角度到真实角度
@@ -82,7 +88,7 @@ public class Joint2Contol : MonoBehaviour
                         {
                             j2RotationSpeedX = 0;
                             joint2MotionOver = true;
-
+                            joint2Automatic = false;
                         }
                     }
                     else if (GetInspectorRotationValueMethod(transform) < 0)//角度在180到360之间时，先通过角度校准，再进行旋转
@@ -91,7 +97,7 @@ public class Joint2Contol : MonoBehaviour
                         {
                             j2RotationSpeedX = 0;
                             joint2MotionOver = true;
-
+                            joint2Automatic = false;
                         }
                     }
                 }
@@ -103,6 +109,7 @@ public class Joint2Contol : MonoBehaviour
                         {
                             j2RotationSpeedX = 0;
                             joint2MotionOver = true;
+                            joint2Automatic = false;
                         }
                     }
                     else if (GetInspectorRotationValueMethod(transform) < 0)//角度在180到360之间时，先通过角度校准，再进行旋转
@@ -111,7 +118,7 @@ public class Joint2Contol : MonoBehaviour
                         {
                             j2RotationSpeedX = 0;
                             joint2MotionOver = true;
-
+                            joint2Automatic = false;
                         }
                     }
                 }
@@ -126,6 +133,7 @@ public class Joint2Contol : MonoBehaviour
                         {
                             j2RotationSpeedX = 0;
                             joint2MotionOver = true;
+                            joint2Automatic = false;
                         }
                     }
                     else if (GetInspectorRotationValueMethod(transform) > 0)//当旋转角度在-180度到-360度时
@@ -134,6 +142,7 @@ public class Joint2Contol : MonoBehaviour
                         {
                             j2RotationSpeedX = 0;
                             joint2MotionOver = true;
+                            joint2Automatic = false;
                         }
                     }
                 }
@@ -145,6 +154,7 @@ public class Joint2Contol : MonoBehaviour
                         {
                             j2RotationSpeedX = 0;
                             joint2MotionOver = true;
+                            joint2Automatic = false;
                         }
                     }
                     if (GetInspectorRotationValueMethod(transform) > 0)//当旋转角度在-180度到-360度时
@@ -153,6 +163,7 @@ public class Joint2Contol : MonoBehaviour
                         {
                             j2RotationSpeedX = 0;
                             joint2MotionOver = true;
+                            joint2Automatic = false;
                         }
                     }
                 }
