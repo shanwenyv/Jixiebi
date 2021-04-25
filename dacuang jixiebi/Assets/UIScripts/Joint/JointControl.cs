@@ -36,8 +36,11 @@ public class JointControl : MonoBehaviour
 
     private void Update()
     {
-        Automatic();
-        SetAngles();
+        if (automatic == true)
+        {
+            Automatic();
+            SetAngles();
+        }
     }
 
     /// <summary>
@@ -45,7 +48,7 @@ public class JointControl : MonoBehaviour
     /// </summary>
     static public void Automatic()
     {
-        if (ProgrammePanel.state <= 6 && automatic == true && Angles == true)
+        if (ProgrammePanel.state <= 5&& Angles == true)
         {
             float[] joint = new float[5];
             for (int i = 0; i < joint.Length; i++)
@@ -55,10 +58,10 @@ public class JointControl : MonoBehaviour
             SetJointAngle(joint);
             ProgrammePanel.state++;
         }
-        else if(ProgrammePanel.state > 6 && automatic == true && Angles == true)
+        else if(ProgrammePanel.state > 5&& Angles == true)
         {
             automatic = false;
-            ProgrammePanel.state = 1;
+            ProgrammePanel.state = 0;
         }
     }
 

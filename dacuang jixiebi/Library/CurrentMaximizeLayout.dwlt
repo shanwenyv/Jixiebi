@@ -15,6 +15,7 @@ MonoBehaviour:
   m_Children:
   - {fileID: 3}
   - {fileID: 16}
+>>>>>>> Stashed changes
   m_Position:
     serializedVersion: 2
     x: 0
@@ -84,7 +85,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
     m_HSlider: 0
-    m_VSlider: 0
+    m_VSlider: 1
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -176,9 +177,15 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
+<<<<<<< Updated upstream
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: SceneHierarchyWindow
+=======
   m_EditorHideFlags: 0
   m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
+>>>>>>> Stashed changes
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 6}
@@ -218,6 +225,7 @@ MonoBehaviour:
   m_Panes:
   - {fileID: 7}
   m_Selected: 0
+>>>>>>> Stashed changes
   m_LastSelected: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -629,6 +637,36 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
+<<<<<<< Updated upstream
+  m_DirectoriesAreaWidth: 115
+--- !u!114 &11
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12003, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: "\u63A7\u5236\u53F0"
+    m_Image: {fileID: 111653112392082826, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 8
+    y: 718
+    width: 1366
+    height: 308
+  m_ViewDataDictionary: {fileID: 0}
+--- !u!114 &12
+=======
   m_DirectoriesAreaWidth: 110
 --- !u!114 &14
 MonoBehaviour:
@@ -683,6 +721,7 @@ MonoBehaviour:
     height: 100
   m_ViewDataDictionary: {fileID: 0}
 --- !u!114 &16
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -705,10 +744,17 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
+<<<<<<< Updated upstream
+  - {fileID: 13}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &13
+=======
   - {fileID: 17}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &17
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
