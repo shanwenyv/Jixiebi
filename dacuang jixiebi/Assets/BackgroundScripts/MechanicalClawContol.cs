@@ -6,12 +6,13 @@ public class MechanicalClawContol : MonoBehaviour
 {
     // Start is called before the first frame update
     private int t = 0;
+    static public  bool grabUP = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Catch")
         {
             print("触发碰撞");
-            t = 1;
+            grabUP = true;
         }
     }
     public Transform trans;
@@ -23,9 +24,13 @@ public class MechanicalClawContol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(t == 1 && Input.GetKey(KeyCode.Keypad0))
+        if(grabUP ==true || Input.GetKey(KeyCode.F1))
         {
             trans.parent = this.transform;
+        }
+        if(grabUP == false || Input.GetKey(KeyCode.F2))
+        {
+            this.transform.DetachChildren();
         }
     }
 }
