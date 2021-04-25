@@ -40,6 +40,11 @@ public class JointControl : MonoBehaviour
         {
             Automatic();
             SetAngles();
+            joint[0].GetComponent<Joint1Contol>().Joint1AutomationContol();
+            joint[1].GetComponent<Joint2Contol>().Joint2AutomationContol();
+            joint[2].GetComponent<Joint3Contol>().Joint3AutomationContol(); ;
+            joint[3].GetComponent<Joint4Contol>().Joint4AutomationContol();
+            joint[4].GetComponent<Joint5Contol>().Joint5AutomationContol();
         }
     }
 

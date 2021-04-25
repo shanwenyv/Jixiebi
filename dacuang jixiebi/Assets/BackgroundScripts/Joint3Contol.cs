@@ -8,8 +8,6 @@ using System.Reflection;
 
 public class Joint3Contol : MonoBehaviour
 {
-    private int t = 0;
-    private int a = 0;
     public static Joint3Contol Instance3;
     public float joint3Angle = 90;//关节2旋转角度
 
@@ -23,17 +21,17 @@ public class Joint3Contol : MonoBehaviour
     public float joint3AngleAbjust = 0;//在运动代码部分，当旋转角度大于180度时，校准度数
     public float joint3SpeedAbjust = 0;//在重置速度部分，当旋转角度大于180度时，校准度数
 
+    private float t3;
     public void Joint3Reset()//重置关节代码中的各项参数
     {
         joint3MotionOver = false;
         j3RotationSpeedX = 30;//按下小键盘回车，重置速度初始值
         joint3SpeedAbjust = 0;//重置速度中判断角度调整值
         joint3AngleAbjust = 0;//重置旋转角度调整值
-        if (joint3Angle >= 0)
+        if (joint3Angle >= 0 && t3 >= 0)
         {
             if (GetInspectorRotationValueMethod(transform) < 0)//如果物体角度大于180度，则校准角度
             {
-                t = 1;
                 joint3SpeedAbjust = 360 + GetInspectorRotationValueMethod(transform);
 
             }
@@ -46,7 +44,7 @@ public class Joint3Contol : MonoBehaviour
                 j3RotationSpeedX = -j3RotationSpeedX;
             }
         }
-        else if (joint3Angle <= 0)
+        else if (joint3Angle <= 0 && t3 <= 0)
         {
             j3RotationSpeedX = -30;
             if (GetInspectorRotationValueMethod(transform) > 0)//如果物体角度小于-180度，则校准角度
@@ -64,6 +62,111 @@ public class Joint3Contol : MonoBehaviour
         }
     }
 
+
+    public void Joint3AutomationContol()//关节3自动运动
+    {
+        transform.Rotate(new Vector3(j3RotationSpeedX, j3RotationSpeedY, j3RotationSpeedZ) * Time.deltaTime);
+        if (GetInspectorRotationValueMethod(transform) < 0 && joint3Angle > 0)//如果做正数角度旋转且旋转角度大于180度，则矫正角度到真实角度
+        {
+            joint3AngleAbjust = 360 + GetInspectorRotationValueMethod(transform);
+        }
+        if (GetInspectorRotationValueMethod(transform) > 0 && joint3Angle < 0)//如果做负数角度旋转且旋转角度小于于-180度，则矫正角度到真实角度
+        {
+            joint3AngleAbjust = GetInspectorRotationValueMethod(transform) - 360;
+        }
+        //print("旋转了：" + GetInspectorRotationValueMethod(transform));//输出旋转角度
+        if (joint3Angle >= 0)//当设定角度大于初始角度时,机械臂做正方向运动
+        {
+            //print("旋转了：" + this.transform.localEulerAngles.z);
+            if (j3RotationSpeedX > 0)
+            {
+                if (GetInspectorRotationValueMethod(transform) > 0)//角度在0到180之间时，正常旋转
+                {
+                    if (GetInspectorRotationValueMethod(transform) >= joint3Angle + 0.5)
+                    {
+                        j3RotationSpeedX = 0;
+                        joint3MotionOver = true;
+                        joint3Automatic = false;
+                    }
+                }
+                else if (GetInspectorRotationValueMethod(transform) < 0)//角度在180到360之间时，先通过角度校准，再进行旋转
+                {
+                    if (joint3AngleAbjust >= joint3Angle + 0.5)
+                    {
+                        j3RotationSpeedX = 0;
+                        joint3MotionOver = true;
+                        joint3Automatic = false;
+                    }
+                }
+            }
+            else if (j3RotationSpeedX < 0)//当设定角度小于初始角度时
+            {
+                if (GetInspectorRotationValueMethod(transform) > 0)//角度在0到180之间时，正常旋转
+                {
+                    if (GetInspectorRotationValueMethod(transform) <= joint3Angle + 0.5)
+                    {
+                        j3RotationSpeedX = 0;
+                        joint3MotionOver = true;
+                        joint3Automatic = false;
+                    }
+                }
+                else if (GetInspectorRotationValueMethod(transform) < 0)//角度在180到360之间时，先通过角度校准，再进行旋转
+                {
+                    if (joint3AngleAbjust <= joint3Angle + 0.5)
+                    {
+                        j3RotationSpeedX = 0;
+                        joint3MotionOver = true;
+                        joint3Automatic = false;
+                    }
+                }
+            }
+        }
+        else if (joint3Angle <= 0)//当设定角度小于初始角度时,机械臂做负方向运动
+        {
+            if (j3RotationSpeedX < 0)//机械臂做逆时针转动
+            {
+                if (GetInspectorRotationValueMethod(transform) < 0)//当旋转角度在0到-180度时
+                {
+                    if (GetInspectorRotationValueMethod(transform) < joint3Angle)
+                    {
+                        j3RotationSpeedX = 0;
+                        joint3MotionOver = true;
+                        joint3Automatic = false;
+                    }
+                }
+                else if (GetInspectorRotationValueMethod(transform) > 0)//当旋转角度在-180度到-360度时
+                {
+                    if (joint3AngleAbjust < joint3Angle)
+                    {
+                        j3RotationSpeedX = 0;
+                        joint3MotionOver = true;
+                        joint3Automatic = false;
+                    }
+                }
+            }
+            else if (j3RotationSpeedX > 0)//机械臂做顺时针转动
+            {
+                if (GetInspectorRotationValueMethod(transform) < 0)//当旋转角度在0到-180度时
+                {
+                    if (GetInspectorRotationValueMethod(transform) > joint3Angle)
+                    {
+                        j3RotationSpeedX = 0;
+                        joint3MotionOver = true;
+                        joint3Automatic = false;
+                    }
+                }
+                if (GetInspectorRotationValueMethod(transform) > 0)//当旋转角度在-180度到-360度时
+                {
+                    if (joint3AngleAbjust > joint3Angle)
+                    {
+                        j3RotationSpeedX = 0;
+                        joint3MotionOver = true;
+                        joint3Automatic = false;
+                    }
+                }
+            }
+        }
+    }
     private void Awake()
     {
         Instance3 = this;                            //单例模式
@@ -109,107 +212,8 @@ public class Joint3Contol : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Keypad3) || Input.GetKey(KeyCode.Return) || joint3Automatic == true)
         {
-            transform.Rotate(new Vector3(j3RotationSpeedX, j3RotationSpeedY, j3RotationSpeedZ) * Time.deltaTime);
-            if (GetInspectorRotationValueMethod(transform) < 0 && joint3Angle > 0)//如果做正数角度旋转且旋转角度大于180度，则矫正角度到真实角度
-            {
-                joint3AngleAbjust = 360 + GetInspectorRotationValueMethod(transform);
-            }
-            if (GetInspectorRotationValueMethod(transform) > 0 && joint3Angle < 0)//如果做负数角度旋转且旋转角度小于于-180度，则矫正角度到真实角度
-            {
-                joint3AngleAbjust = GetInspectorRotationValueMethod(transform) - 360;
-            }
-            //print("旋转了：" + GetInspectorRotationValueMethod(transform));//输出旋转角度
-            if (joint3Angle >= 0)//当设定角度大于初始角度时,机械臂做正方向运动
-            {
-                //print("旋转了：" + this.transform.localEulerAngles.z);
-                if (j3RotationSpeedX > 0)
-                {
-                    if (GetInspectorRotationValueMethod(transform) > 0)//角度在0到180之间时，正常旋转
-                    {
-                        if (GetInspectorRotationValueMethod(transform) >= joint3Angle + 0.5)
-                        {
-                            j3RotationSpeedX = 0;
-                            joint3MotionOver = true;
-                            joint3Automatic = false;
-                        }
-                    }
-                    else if (GetInspectorRotationValueMethod(transform) < 0)//角度在180到360之间时，先通过角度校准，再进行旋转
-                    {
-                        if (joint3AngleAbjust >= joint3Angle + 0.5)
-                        {
-                            j3RotationSpeedX = 0;
-                            joint3MotionOver = true;
-                            joint3Automatic = false;
-                        }
-                    }
-                }
-                else if (j3RotationSpeedX < 0)//当设定角度小于初始角度时
-                {
-                    if (GetInspectorRotationValueMethod(transform) > 0)//角度在0到180之间时，正常旋转
-                    {
-                        if (GetInspectorRotationValueMethod(transform) <= joint3Angle + 0.5)
-                        {
-                            j3RotationSpeedX = 0;
-                            joint3MotionOver = true;
-                            joint3Automatic = false;
-                        }
-                    }
-                    else if (GetInspectorRotationValueMethod(transform) < 0)//角度在180到360之间时，先通过角度校准，再进行旋转
-                    {
-                        if (joint3AngleAbjust <= joint3Angle + 0.5)
-                        {
-                            j3RotationSpeedX = 0;
-                            joint3MotionOver = true;
-                            joint3Automatic = false;
-                        }
-                    }
-                }
-            }
-            else if (joint3Angle <= 0)//当设定角度小于初始角度时,机械臂做负方向运动
-            {
-                if (j3RotationSpeedX < 0)//机械臂做逆时针转动
-                {
-                    if (GetInspectorRotationValueMethod(transform) < 0)//当旋转角度在0到-180度时
-                    {
-                        if (GetInspectorRotationValueMethod(transform) < joint3Angle)
-                        {
-                            j3RotationSpeedX = 0;
-                            joint3MotionOver = true;
-                            joint3Automatic = false;
-                        }
-                    }
-                    else if (GetInspectorRotationValueMethod(transform) > 0)//当旋转角度在-180度到-360度时
-                    {
-                        if (joint3AngleAbjust < joint3Angle)
-                        {
-                            j3RotationSpeedX = 0;
-                            joint3MotionOver = true;
-                            joint3Automatic = false;
-                        }
-                    }
-                }
-                else if (j3RotationSpeedX > 0)//机械臂做顺时针转动
-                {
-                    if (GetInspectorRotationValueMethod(transform) < 0)//当旋转角度在0到-180度时
-                    {
-                        if (GetInspectorRotationValueMethod(transform) > joint3Angle)
-                        {
-                            j3RotationSpeedX = 0;
-                            joint3MotionOver = true;
-                            joint3Automatic = false;
-                        }
-                    }
-                    if (GetInspectorRotationValueMethod(transform) > 0)//当旋转角度在-180度到-360度时
-                    {
-                        if (joint3AngleAbjust > joint3Angle)
-                        {
-                            j3RotationSpeedX = 0;
-                            joint3MotionOver = true;
-                            joint3Automatic = false;
-                        }
-                    }
-                }
-            }
+            t3 = joint3Angle;
+            Joint3AutomationContol();
         }
         if (Input.GetKey(KeyCode.KeypadEnter))
         {
