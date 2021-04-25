@@ -56,6 +56,7 @@ public class JointControl : MonoBehaviour
                 joint[i] = ProgrammePanel.stateAngle[ProgrammePanel.state, i];
             }
             SetJointAngle(joint);
+            ResetAngles();
             ProgrammePanel.state++;
         }
         else if(ProgrammePanel.state > 5&& Angles == true)
