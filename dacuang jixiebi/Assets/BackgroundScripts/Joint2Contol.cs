@@ -202,7 +202,8 @@ public class Joint2Contol : MonoBehaviour
     {
         if (JointInitiaze.jointIntiazeBool == true)//初始化机械臂关节2角度
         {
-            joint2Angle = 0;
+            //joint2Angle = 0;
+            transform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));
         }
         //print("旋转了" + GetInspectorRotationValueMethod(transform));
         float currentRotateX = transform.eulerAngles.x;

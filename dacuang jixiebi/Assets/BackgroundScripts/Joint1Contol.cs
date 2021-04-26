@@ -103,7 +103,8 @@ public class Joint1Contol : MonoBehaviour
     {
         if(JointInitiaze.jointIntiazeBool == true)//初始化机械臂关节1角度
         {
-            joint1Angle = 0;
+            //joint1Angle = 0;
+            transform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));
             //joint1InitizeReturn = true;
         }
         if (Input.GetKey(KeyCode.Keypad1) || Input.GetKey(KeyCode.Return) || joint1Automatic == true)
