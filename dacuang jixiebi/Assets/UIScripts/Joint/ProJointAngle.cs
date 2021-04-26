@@ -7,6 +7,7 @@ public class ProJointAngle : MonoBehaviour
 {
     public GameObject proui;
     public static GameObject[] anglePro = new GameObject[5];
+    public static GameObject claw;
 
     private void Awake()
     {
@@ -15,6 +16,8 @@ public class ProJointAngle : MonoBehaviour
         {
             anglePro[i] = FindChildGameObject($"InputJointAngle{i + 1}");
         }
+        claw = FindChildGameObject("ClawState");
+        ShowStateAngle();
     }
     /// <summary>
     /// 展示当前状态的关节值
@@ -25,6 +28,15 @@ public class ProJointAngle : MonoBehaviour
         {
             anglePro[i].GetComponent<Text>().text = $"{ProgrammePanel.stateAngle[ProgrammePanel.state, i]}";
         }
+        ShowClawState();
+    }
+
+    /// <summary>
+    /// 显示爪子状态
+    /// </summary>
+    public static void ShowClawState()
+    {
+        claw.GetComponent<Text>().text = ProgrammePanel.claw[ProgrammePanel.state].ToString();
     }
 
     public GameObject FindChildGameObject(string name)

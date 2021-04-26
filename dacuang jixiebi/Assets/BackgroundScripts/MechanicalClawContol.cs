@@ -10,11 +10,11 @@ public class MechanicalClawContol : MonoBehaviour
 
     static public  bool grabUP = false;
 
-    public void Up()//抓起
+    public static void Up()//抓起
     {
         grabUP = true;
     }
-    public void Down()//放下
+    public static void Down()//放下
     {
         grabUP = false;
     }
@@ -45,11 +45,11 @@ public class MechanicalClawContol : MonoBehaviour
             print("放下");
             Down();
         }
-        if (grabUP ==true && touch == true)
+        if (grabUP ==true && touch == true && JointControl.Angles)
         {
             trans.parent = this.transform;
         }
-        if(grabUP == false && touch == true)
+        if(grabUP == false && touch == true && JointControl.Angles == false)
         {
             this.transform.DetachChildren();
         }
