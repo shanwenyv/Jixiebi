@@ -100,7 +100,8 @@ public class Joint5Contol : MonoBehaviour
     {
         if (JointInitiaze.jointIntiazeBool == true)//初始化机械臂关节5角度
         {
-            joint5Angle = 0;
+            //joint5Angle = 0;
+            transform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));
         }
         if (Input.GetKey(KeyCode.Keypad5) || Input.GetKey(KeyCode.Return) || joint5Automatic == true)
         {

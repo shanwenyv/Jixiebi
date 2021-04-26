@@ -14,6 +14,10 @@ public class JointInitiaze : MonoBehaviour
         jointIntiazeBool = true;
         return;
     }
+    public static void InitiazeReturn()//初始化机械臂关节初始化判定
+    {
+        jointIntiazeBool = false;
+    }
     void Update()
     {
         if (Input.GetKey(KeyCode.Q))//当Q键被按下的时候，关节启动初始化程序
@@ -22,7 +26,7 @@ public class JointInitiaze : MonoBehaviour
         }
         if(Input.GetKey(KeyCode.KeypadEnter))//按下小键盘回车键，初始化 关节初始化判定bool变量
         {
-            jointIntiazeBool = false;
+            InitiazeReturn();
         }
     }
 }
