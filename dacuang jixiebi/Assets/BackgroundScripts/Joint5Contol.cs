@@ -23,14 +23,14 @@ public class Joint5Contol : MonoBehaviour
     {
         joint5MotionOver = false;
         j5RotationSpeedZ = 30;//初始化速度
-        if (joint5Angle > 0 && t5 >= 0)//判断机械臂是否在做正数角度运动
+        if (joint5Angle >= 0 && t5 >= 0)//判断机械臂是否在做正数角度运动
         {
-            if (joint5Angle < this.transform.localEulerAngles.z + 0.5)//机械臂在做正数角度运动时，如果输入度数小于当前度数，则速度值为负
+            if (joint5Angle <= this.transform.localEulerAngles.z + 0.5)//机械臂在做正数角度运动时，如果输入度数小于当前度数，则速度值为负
             {
                 j5RotationSpeedZ = -j5RotationSpeedZ;
             }
         }
-        else if (joint5Angle < 0 && t5 <= 0)//判断机械臂是否在做负数角度运动
+        else if (joint5Angle <= 0 && t5 <= 0)//判断机械臂是否在做负数角度运动
         {
             if ((this.transform.localEulerAngles.z - 360) >= joint5Angle)//先校准角度，机械臂在做负数角度运动时，如果输入度数小于当前度数，则速度值为负
             {
@@ -42,7 +42,7 @@ public class Joint5Contol : MonoBehaviour
     public void Joint5AutomationContol()//关节5自动运动
     {
         transform.Rotate(new Vector3(j5RotationSpeedX, j5RotationSpeedY, j5RotationSpeedZ) * Time.deltaTime);//关节进行旋转
-        if (joint5Angle > 0)//当输入的角度为正数时，机械臂在正数角度运动
+        if (joint5Angle >= 0)//当输入的角度为正数时，机械臂在正数角度运动
         {
             //print("旋转了：" + this.transform.localEulerAngles.z);
             if (j5RotationSpeedZ > 0)
@@ -65,7 +65,7 @@ public class Joint5Contol : MonoBehaviour
             }
 
         }
-        else if (joint5Angle < 0)//当输入的角度为负数时，机械臂在负数角度运动
+        else if (joint5Angle <= 0)//当输入的角度为负数时，机械臂在负数角度运动
         {
             //print("旋转了：" + (this.transform.localEulerAngles.z - 360));
             if (j5RotationSpeedZ > 0)
