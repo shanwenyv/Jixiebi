@@ -36,13 +36,14 @@ public class JointControl : MonoBehaviour
 
     private void Update()
     {
+        SetAngles();
         if (automatic == true)
         {
             Automatic();
-            SetAngles();
+            ClawControl();
             joint[0].GetComponent<Joint1Contol>().Joint1AutomationContol();
             joint[1].GetComponent<Joint2Contol>().Joint2AutomationContol();
-            joint[2].GetComponent<Joint3Contol>().Joint3AutomationContol(); ;
+            joint[2].GetComponent<Joint3Contol>().Joint3AutomationContol();
             joint[3].GetComponent<Joint4Contol>().Joint4AutomationContol();
             joint[4].GetComponent<Joint5Contol>().Joint5AutomationContol();
         }
@@ -97,6 +98,21 @@ public class JointControl : MonoBehaviour
         joint[2].GetComponent<Joint3Contol>().Joint3Reset();
         joint[3].GetComponent<Joint4Contol>().Joint4Reset();
         joint[4].GetComponent<Joint5Contol>().Joint5Reset();
+    }
+
+    /// <summary>
+    /// 爪子控制
+    /// </summary>
+    public static void ClawControl()
+    {
+        if (ProgrammePanel.claw[ProgrammePanel.state])
+        {
+            MechanicalClawContol.Up();
+        }
+        else
+        {
+            MechanicalClawContol.Down();
+        }
     }
 }
 

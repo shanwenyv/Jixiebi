@@ -16,6 +16,14 @@ public class SettingPanel : BasePanel
         {
             PanelManager.Pop();
         });
+        UITool.GetOrAddComponentInChildren<Button>("ON").onClick.AddListener(() =>
+        {
+            MechanicalClawContol.Up();
+        });
+        UITool.GetOrAddComponentInChildren<Button>("OFF").onClick.AddListener(() =>
+        {
+            MechanicalClawContol.Down();
+        });
         UITool.GetOrAddComponentInChildren<Button>("ApplyButton").onClick.AddListener(() =>
         {
             for (int i = 0; i < angle.Length; i++)

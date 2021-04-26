@@ -12,6 +12,8 @@ public class ProgrammePanel : BasePanel
     public static float[,] stateAngle = new float[6, 5]{ {1, 1, 1, 1, 1 } , {2, 2, 2, 2, 2} , {3, 3, 3, 3, 3},
                                                          {4, 4, 4, 4, 4 } , {5, 5, 5, 5, 5} , {6, 6, 6, 6, 6} };
     public static float[] textAngle = new float[5];
+    public static bool[] claw = new bool[6] { false, false, false, false, false, false };
+
 
     static readonly string path = "Perfabs/UI/Panel/ProgrammePanel";
     public ProgrammePanel() : base(new UIType(path)) { }
@@ -63,6 +65,16 @@ public class ProgrammePanel : BasePanel
             state = 5;
             ProJointAngle.ShowStateAngle();
         });
+        UITool.GetOrAddComponentInChildren<Button>("ON").onClick.AddListener(() =>
+        {
+            claw[state] = true;
+            ProJointAngle.ShowClawState();
+        });
+        UITool.GetOrAddComponentInChildren<Button>("OFF").onClick.AddListener(() =>
+        {
+            claw[state] = false;
+            ProJointAngle.ShowClawState();
+        });
     }
 
     /// <summary>
@@ -97,7 +109,7 @@ public class ProgrammePanel : BasePanel
         {
             stateAngle[state, i] = 0;
         }
+        claw[state] = false;
     }
-
 
 }

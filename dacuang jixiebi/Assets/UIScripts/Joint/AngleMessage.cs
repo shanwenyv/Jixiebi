@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class AngleMessage : MonoBehaviour
 {
-    public  GameObject meui;
+    public GameObject meui;
     public GameObject[] angleMessage = new GameObject[5];
+    public GameObject clawMessage;
     static float[] jointSpeed = new float[5];
     static float[] jointSetAngle = new float[5];
     static float[] jointAngle = new float[5];
@@ -19,6 +20,7 @@ public class AngleMessage : MonoBehaviour
         {
             angleMessage[i] = FindChildGameObject($"Angle{i + 1}");
         }
+        clawMessage = FindChildGameObject("ClawState");
     }
 
     void Update()
@@ -57,6 +59,7 @@ public class AngleMessage : MonoBehaviour
         {
             angleMessage[i].GetComponent<Text>().text = $"{jointAngle[i]}";
         }
+        clawMessage.GetComponent<Text>().text = MechanicalClawContol.grabUP.ToString();
     }
 
     /// <summary>
