@@ -40,6 +40,11 @@ public class JointControl : MonoBehaviour
         {
             Automatic();
             SetAngles();
+            joint[0].GetComponent<Joint1Contol>().Joint1AutomationContol();
+            joint[1].GetComponent<Joint2Contol>().Joint2AutomationContol();
+            joint[2].GetComponent<Joint3Contol>().Joint3AutomationContol(); ;
+            joint[3].GetComponent<Joint4Contol>().Joint4AutomationContol();
+            joint[4].GetComponent<Joint5Contol>().Joint5AutomationContol();
         }
     }
 
@@ -56,6 +61,7 @@ public class JointControl : MonoBehaviour
                 joint[i] = ProgrammePanel.stateAngle[ProgrammePanel.state, i];
             }
             SetJointAngle(joint);
+            ResetAngles();
             ProgrammePanel.state++;
         }
         else if(ProgrammePanel.state > 5&& Angles == true)
@@ -79,6 +85,18 @@ public class JointControl : MonoBehaviour
         {
             Angles = false;
         }
+    }
+
+    /// <summary>
+    /// 重置所有设置角度
+    /// </summary>
+    public static void ResetAngles()
+    {
+        joint[0].GetComponent<Joint1Contol>().Joint1Reset();
+        joint[1].GetComponent<Joint2Contol>().Joint2Reset();
+        joint[2].GetComponent<Joint3Contol>().Joint3Reset();
+        joint[3].GetComponent<Joint4Contol>().Joint4Reset();
+        joint[4].GetComponent<Joint5Contol>().Joint5Reset();
     }
 }
 

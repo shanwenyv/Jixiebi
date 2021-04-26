@@ -57,6 +57,7 @@ public class MainPanel : BasePanel
         UITool.GetOrAddComponentInChildren<Button>("InitializeButton").onClick.AddListener(() =>
         {
             JointInitiaze.Initiaze();
+            JointControl.ResetAngles();
         });
         UITool.GetOrAddComponentInChildren<Button>("AutomaticButton").onClick.AddListener(() =>
         {
@@ -112,4 +113,5 @@ public class MainPanel : BasePanel
             UITool.GetOrAddComponentInChildren<Text>("ShowAndhide").text = "隐藏图标";
         }
     }
+
 }
