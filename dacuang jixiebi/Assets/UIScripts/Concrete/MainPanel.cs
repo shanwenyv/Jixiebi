@@ -57,6 +57,8 @@ public class MainPanel : BasePanel
         UITool.GetOrAddComponentInChildren<Button>("InitializeButton").onClick.AddListener(() =>
         {
             JointInitiaze.Initiaze();
+            if (JointControl.Angles)
+                JointInitiaze.InitiazeReturn();
             JointControl.ResetAngles();
         });
         UITool.GetOrAddComponentInChildren<Button>("AutomaticButton").onClick.AddListener(() =>
