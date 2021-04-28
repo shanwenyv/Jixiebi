@@ -11,7 +11,7 @@ public class MainPanel : BasePanel
     bool pauseAndResume = true;
     static readonly string path = "Perfabs/UI/Panel/MainPanel";
     public MainPanel() : base(new UIType(path)) { }
-
+    #region
     Button exitButton;
     Button messageButton;
     Button setButton;
@@ -19,6 +19,8 @@ public class MainPanel : BasePanel
     Button programmeButton;
     Button automaticButton;
     Button initializeButton;
+    #endregion
+
 
     public override void OnEnter()
     {
@@ -64,6 +66,13 @@ public class MainPanel : BasePanel
         UITool.GetOrAddComponentInChildren<Button>("AutomaticButton").onClick.AddListener(() =>
         {
             JointControl.automatic = true;
+        });
+        UITool.GetOrAddComponentInChildren<Button>("GuideButton").onClick.AddListener(() =>
+        {
+            if (JointControl.guide.activeInHierarchy == false)
+                JointControl.guide.SetActive(true);
+            else
+                JointControl.guide.SetActive(false);
         });
     }
 

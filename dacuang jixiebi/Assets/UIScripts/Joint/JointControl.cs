@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 /// <summary>
 /// 用于设置交接角度
 /// </summary>
 public class JointControl : MonoBehaviour
 {
+    public static GameObject guide;
     public static bool automatic = false;
     public static bool Angles = false;
 
@@ -19,6 +20,7 @@ public class JointControl : MonoBehaviour
         {
             joint[i] = GameObject.FindGameObjectWithTag($"Joint{i + 1}");
         }
+        guide = GameObject.FindGameObjectWithTag("Guide");
     }
 
     /// <summary>
