@@ -107,13 +107,16 @@ public class JointControl : MonoBehaviour
     /// </summary>
     public static void ClawControl()
     {
-        if (ProgrammePanel.claw[ProgrammePanel.state])
+        if (ProgrammePanel.state < 6)
         {
-            MechanicalClawContol.Up();
-        }
-        else
-        {
-            MechanicalClawContol.Down();
+            if (ProgrammePanel.claw[ProgrammePanel.state])
+            {
+                MechanicalClawContol.Up();
+            }
+            else
+            {
+                MechanicalClawContol.Down();
+            }
         }
     }
 }
