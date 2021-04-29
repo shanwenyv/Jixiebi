@@ -6932,6 +6932,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u81C24@"
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 854fd4cbbda1bd84fb875d3f273c2f2b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Joint3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 854fd4cbbda1bd84fb875d3f273c2f2b, type: 3}
 --- !u!1001 &425024821
@@ -11675,6 +11680,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u81C21 1.0"
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a9d028123a759154eaf5132b47c7aedb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Joint1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9d028123a759154eaf5132b47c7aedb, type: 3}
 --- !u!4 &689737455 stripped
@@ -11683,6 +11693,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 689737454}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &689737456 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a9d028123a759154eaf5132b47c7aedb,
+    type: 3}
+  m_PrefabInstance: {fileID: 689737454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &689737457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689737456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082a109562169b741b19e0119d38ba09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joint1Angle: 90
+  j1RotationSpeedX: 0
+  j1RotationSpeedY: 0
+  j1RotationSpeedZ: 30
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
