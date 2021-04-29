@@ -213,6 +213,7 @@ public class Joint3Contol : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Keypad3) || Input.GetKey(KeyCode.Return) || joint3Automatic == true)
         {
+            print("旋转了：" + GetInspectorRotationValueMethod(transform));//输出旋转角度
             t3 = joint3Angle;
             Joint3AutomationContol();
         }
