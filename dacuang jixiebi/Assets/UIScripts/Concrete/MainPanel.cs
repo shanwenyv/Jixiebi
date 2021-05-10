@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Main场景主面板
@@ -75,6 +76,13 @@ public class MainPanel : BasePanel
                 JointControl.guide.SetActive(true);
             else
                 JointControl.guide.SetActive(false);
+        });
+        UITool.GetOrAddComponentInChildren<Button>("ExchangeButton").onClick.AddListener(() =>
+        {
+            if (SceneManager.GetActiveScene().name == "SampleScene2")
+                GameRoot.Instance.SceneSystem.SetScene(new MainScene());
+            else
+                GameRoot.Instance.SceneSystem.SetScene(new SecondScene());
         });
     }
 
