@@ -11711,7 +11711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082a109562169b741b19e0119d38ba09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint1Angle: 90
+  joint1Angle: 30
   j1RotationSpeedX: 0
   j1RotationSpeedY: 0
   j1RotationSpeedZ: 30
@@ -21141,7 +21141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48eea13a65984de47979bfd12d55bb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint3Angle: 90
+  joint3Angle: 100
   j3RotationSpeedX: 30
   j3RotationSpeedY: 0
   j3RotationSpeedZ: 0
@@ -25443,7 +25443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1298b5a633767244b981e1b5e2c50490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint2Angle: 70
+  joint2Angle: -30
   j2RotationSpeedX: 30
   j2RotationSpeedY: 0
   j2RotationSpeedZ: 0
@@ -32283,7 +32283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e840927f5aa6746b4080ac48b990a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint4Angle: 60
+  joint4Angle: 90
   j4RotationSpeedX: 30
   j4RotationSpeedY: 0
   j4RotationSpeedZ: 0
