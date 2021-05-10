@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Main场景主面板
@@ -19,6 +20,7 @@ public class MainPanel : BasePanel
     Button programmeButton;
     Button automaticButton;
     Button initializeButton;
+    Button guideButton;
     #endregion
 
 
@@ -31,6 +33,7 @@ public class MainPanel : BasePanel
         programmeButton = UITool.GetOrAddComponentInChildren<Button>("ProgrammeButton");
         automaticButton = UITool.GetOrAddComponentInChildren<Button>("AutomaticButton");
         initializeButton = UITool.GetOrAddComponentInChildren<Button>("InitializeButton");
+        guideButton = UITool.GetOrAddComponentInChildren<Button>("GuideButton");
 
         UITool.GetOrAddComponentInChildren<Button>("ExitButton").onClick.AddListener(() =>
         {
@@ -74,6 +77,13 @@ public class MainPanel : BasePanel
             else
                 JointControl.guide.SetActive(false);
         });
+        UITool.GetOrAddComponentInChildren<Button>("ExchangeButton").onClick.AddListener(() =>
+        {
+            if (SceneManager.GetActiveScene().name == "SampleScene2")
+                GameRoot.Instance.SceneSystem.SetScene(new MainScene());
+            else
+                GameRoot.Instance.SceneSystem.SetScene(new SecondScene());
+        });
     }
 
     /// <summary>
@@ -110,6 +120,7 @@ public class MainPanel : BasePanel
             programmeButton.gameObject.SetActive(false);
             automaticButton.gameObject.SetActive(false);
             initializeButton.gameObject.SetActive(false);
+            guideButton.gameObject.SetActive(false);
             UITool.GetOrAddComponentInChildren<Text>("ShowAndhide").text = "显示图标";
         }
         else
@@ -121,6 +132,7 @@ public class MainPanel : BasePanel
             programmeButton.gameObject.SetActive(true);
             automaticButton.gameObject.SetActive(true);
             initializeButton.gameObject.SetActive(true);
+            guideButton.gameObject.SetActive(true);
             UITool.GetOrAddComponentInChildren<Text>("ShowAndhide").text = "隐藏图标";
         }
     }
