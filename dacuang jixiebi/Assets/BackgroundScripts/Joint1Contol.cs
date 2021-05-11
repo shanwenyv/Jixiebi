@@ -19,12 +19,13 @@ public class Joint1Contol : MonoBehaviour
     public float j1RotationSpeedY = 0;
     public float j1RotationSpeedZ = 30;//关节1的旋转速度
 
-    private float t1;
+    public float t1;
     // Start is called before the first frame update
 
     // Update is called once per frame
     public void Joint1Reset()////重置关节代码中的各项参数
     {
+
         joint1MotionOver = false;
         j1RotationSpeedZ = 30;//初始化速度
         if (joint1Angle >= 0 && t1 >=0)//判断机械臂是否在做正数角度运动
@@ -106,6 +107,8 @@ public class Joint1Contol : MonoBehaviour
             //joint1Angle = 0;
             transform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));
             //joint1InitizeReturn = true;
+            Joint1Reset();
+            Joint1Reset();
         }
         if (Input.GetKey(KeyCode.Keypad1) || Input.GetKey(KeyCode.Return) || joint1Automatic == true)
         {
