@@ -16,7 +16,7 @@ public class IRB4600joint2Contol : MonoBehaviour
     public float irb4600j2RotationSpeedY = 0;
     public float irb4600j2RotationSpeedZ = 30;//关节1的旋转速度
 
-    public float irb4600t1;
+    public float irb4600t2;
     // Start is called before the first frame update
 
     // Update is called once per frame
@@ -25,14 +25,14 @@ public class IRB4600joint2Contol : MonoBehaviour
 
         irb4600joint2MotionOver = false;
         irb4600j2RotationSpeedZ = 30;//初始化速度
-        if (irb4600joint2Angle >= 0 && irb4600t1 >= 0)//判断机械臂是否在做正数角度运动
+        if (irb4600joint2Angle >= 0 && irb4600t2 >= 0)//判断机械臂是否在做正数角度运动
         {
             if (irb4600joint2Angle < this.transform.localEulerAngles.z + 0.5)//机械臂在做正数角度运动时，如果输入度数小于当前度数，则速度值为负
             {
                 irb4600j2RotationSpeedZ = -irb4600j2RotationSpeedZ;
             }
         }
-        else if (irb4600joint2Angle <= 0 && irb4600t1 <= 0)//判断机械臂是否在做负数角度运动
+        else if (irb4600joint2Angle <= 0 && irb4600t2 <= 0)//判断机械臂是否在做负数角度运动
         {
             if ((this.transform.localEulerAngles.z - 360) >= irb4600joint2Angle)//先校准角度，机械臂在做负数角度运动时，如果输入度数小于当前度数，则速度值为负
             {
@@ -45,7 +45,7 @@ public class IRB4600joint2Contol : MonoBehaviour
     {
         print("旋转了" + this.transform.localEulerAngles.z);
         transform.Rotate(new Vector3(irb4600j2RotationSpeedX, irb4600j2RotationSpeedY, irb4600j2RotationSpeedZ) * Time.deltaTime);//关节进行旋转
-        if (irb4600joint2Angle >= 0 && irb4600t1 >= 0)//当输入的角度为正数时，机械臂在正数角度运动
+        if (irb4600joint2Angle >= 0 && irb4600t2 >= 0)//当输入的角度为正数时，机械臂在正数角度运动
         {
             //print("旋转了：" + this.transform.localEulerAngles.z);
             if (irb4600j2RotationSpeedZ > 0)
@@ -68,7 +68,7 @@ public class IRB4600joint2Contol : MonoBehaviour
             }
 
         }
-        else if (irb4600joint2Angle <= 0 && irb4600t1 <= 0)//当输入的角度为负数时，机械臂在负数角度运动
+        else if (irb4600joint2Angle <= 0 && irb4600t2 <= 0)//当输入的角度为负数时，机械臂在负数角度运动
         {
             //print("旋转了：" + (this.transform.localEulerAngles.z - 360));
             if (irb4600j2RotationSpeedZ > 0)
@@ -110,7 +110,7 @@ public class IRB4600joint2Contol : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Keypad2) || Input.GetKey(KeyCode.Return) || irb4600joint2Automatic == true)
         {
-            irb4600t1 = irb4600joint2Angle;
+            irb4600t2 = irb4600joint2Angle;
             IRB4600Joint2AutomationContol();
         }
         if (Input.GetKey(KeyCode.KeypadEnter))//对各项参数进行初始化

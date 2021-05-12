@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 613}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -114,10 +114,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 987
-  m_MinSize: {x: 911, y: 542}
-  m_MaxSize: {x: 22006, y: 12042}
+  m_MinSize: {x: 910, y: 563}
+  m_MaxSize: {x: 22005, y: 12063}
   vertical: 0
-  controlID: 185
+  controlID: 192
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,8 +140,8 @@ MonoBehaviour:
     y: 0
     width: 640
     height: 987
-  m_MinSize: {x: 201, y: 542}
-  m_MaxSize: {x: 4001, y: 12042}
+  m_MinSize: {x: 201, y: 563}
+  m_MaxSize: {x: 4001, y: 12063}
   vertical: 1
   controlID: 34
 --- !u!114 &7
@@ -190,8 +190,8 @@ MonoBehaviour:
     y: 386
     width: 640
     height: 387
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -294,8 +294,8 @@ MonoBehaviour:
     y: 0
     width: 498
     height: 987
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -429,9 +429,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 47.59503, y: 8.046677, z: 4.360426}
+    m_Target: {x: 47.972908, y: 6.098857, z: -0.9050517}
     speed: 2
-    m_Value: {x: 47.59503, y: 8.046677, z: 4.360426}
+    m_Value: {x: 47.972908, y: 6.098857, z: -0.9050517}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -477,13 +477,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.21601026, y: -0.22919202, z: 0.05225475, w: 0.94768316}
+    m_Target: {x: 0.12720403, y: 0.17578398, z: -0.02289741, w: 0.9759193}
     speed: 2
-    m_Value: {x: 0.217429, y: -0.22911069, z: 0.05259788, w: 0.947347}
+    m_Value: {x: 0.12866625, y: 0.17574736, z: -0.023160798, w: 0.97571594}
   m_Size:
-    m_Target: 7.85319
+    m_Target: 3.2322004
     speed: 2
-    m_Value: 7.515014
+    m_Value: 2.9322004
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -591,7 +591,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 6e17ffff8e17ffff4234ffff6651ffff6a51ffff60e1ffff56e8ffff66fbffff68fbffff6afbffff48f604000cfb0400
+      m_ExpandedIDs: 0cccffffdae2ffffe8f7ffff70f9ffff0afbffff66fbffff44350000ea350000ba360000ea360000d6390000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -666,7 +666,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 4c340000
     m_LastClickedID: 13388
-    m_ExpandedIDs: 0000000050340000523400005434000056340000583400005a3400005c3400005e34000060340000623400006434000066340000683400006a3400006c3400006e34000070340000723400007434000076340000783400007a3400007c3400007e34000080340000823400008434000086340000883400008a340000
+    m_ExpandedIDs: 00000000b03b0000b23b0000b43b0000b63b0000b83b0000ba3b0000bc3b0000be3b0000c03b0000c23b0000c43b0000c63b0000c83b0000ca3b0000cc3b0000ce3b0000d03b0000d23b0000d43b0000d63b0000d83b0000da3b0000dc3b0000de3b0000e03b0000e23b0000e43b0000e63b0000e83b0000ea3b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -694,18 +694,18 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff0000000050340000523400005434000056340000583400005a3400005c3400005e34000060340000623400006434000066340000683400006a3400006c3400006e34000070340000723400007434000076340000783400007a3400007c3400007e34000080340000823400008434000086340000883400008a340000
+    m_ExpandedIDs: ffffffff00000000b03b0000b23b0000b43b0000b63b0000b83b0000ba3b0000bc3b0000be3b0000c03b0000c23b0000c43b0000c63b0000c83b0000ca3b0000cc3b0000ce3b0000d03b0000d23b0000d43b0000d63b0000d83b0000da3b0000dc3b0000de3b0000e03b0000e23b0000e43b0000e63b0000e83b0000ea3b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: IRB4600joint2Contol
-      m_OriginalName: IRB4600joint2Contol
+      m_Name: IRB4600Joint4Contol
+      m_OriginalName: IRB4600Joint4Contol
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 278942
+      m_UserData: 46578
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
