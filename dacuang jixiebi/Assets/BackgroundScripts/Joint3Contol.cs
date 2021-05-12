@@ -204,6 +204,7 @@ public class Joint3Contol : MonoBehaviour
         {
             //joint3Angle = 0;
             transform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));
+            Joint3Reset();
         }
         //print("旋转了" + GetInspectorRotationValueMethod(transform));
         float currentRotateX = transform.eulerAngles.x;

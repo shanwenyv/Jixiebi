@@ -102,6 +102,7 @@ public class Joint5Contol : MonoBehaviour
         {
             //joint5Angle = 0;
             transform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));
+            Joint5Reset();
         }
         if (Input.GetKey(KeyCode.Keypad5) || Input.GetKey(KeyCode.Return) || joint5Automatic == true)
         {
