@@ -41,7 +41,7 @@ public class SecondScene : SceneState
     /// <param name="loadSceneMode"></param>
     private void SceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
-        panelManager.Push(new MainPanel());
+        panelManager.Push(new MainPanel2());
         Debug.Log($"{sceneName}加载完毕。。");
     }
 
