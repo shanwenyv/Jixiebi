@@ -8,8 +8,6 @@ public class PlayerContol : MonoBehaviour
 
     public float moveSpeed;//角色移动速度
 
-    public float jumpSpeed;//角色跳跃速度
-
     private float horizontalMove, verticalMove;//按键值变量
 
     private Vector3 dir;//定义三维变量,dir控制方向

@@ -19,7 +19,7 @@ public class Joint1Contol : MonoBehaviour
     public float j1RotationSpeedY = 0;
     public float j1RotationSpeedZ = 30;//关节1的旋转速度
 
-    public float t1;
+    public float t1 = 0;
     // Start is called before the first frame update
 
     // Update is called once per frame

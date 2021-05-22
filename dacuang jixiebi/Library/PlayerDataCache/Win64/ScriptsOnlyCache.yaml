@@ -6,7 +6,6 @@ ScriptsOnlyBuild:
     - IRB4600Joint1Contol
     - IRB4600Joint3Contol
     - IRB4600Joint4Contol
-    - IRB4600ceshi
     - IRB4600joint2Contol
     - Joint1Contol
     - Joint2Contol
@@ -76,8 +75,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11948}
     - Class: 114
       Script: {instanceID: 12048}
-    - Class: 114
-      Script: {instanceID: 12282}
     - Class: 114
       Script: {instanceID: 12668}
     - Class: 114
