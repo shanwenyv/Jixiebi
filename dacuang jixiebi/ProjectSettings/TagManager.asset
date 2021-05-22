@@ -14,6 +14,11 @@ TagManager:
   - Joint1
   - Joint5
   - Guide
+  - RJoint1
+  - RJoint2
+  - RJoint3
+  - RJoint4
+  - MessagePanel2
   layers:
   - Default
   - TransparentFX

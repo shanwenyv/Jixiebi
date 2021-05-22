@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IRB4600joint2Contol : MonoBehaviour
+public class IRB4600Joint2Contol : MonoBehaviour
 {
     public float irb4600joint2Angle = 90;//关节1旋转角度
 

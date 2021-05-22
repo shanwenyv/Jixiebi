@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class AngleMessage : MonoBehaviour
 {
     public GameObject meui;
     public GameObject[] angleMessage = new GameObject[5];
+
+
     public GameObject clawMessage;
+    //六轴机械臂控制信息
+    #region
     static float[] jointSpeed = new float[5];
     static float[] jointSetAngle = new float[5];
     static float[] jointAngle = new float[5];
+    #endregion
+
 
     private void Awake()
     {
@@ -70,7 +77,7 @@ public class AngleMessage : MonoBehaviour
     {
         for (int i = 0; i < jointAngle.Length; i++)
         {
-            float Angle = jointSetAngle[i] - jointAngle[i]; 
+            float Angle = jointSetAngle[i] - jointAngle[i];
             if (Angle <= 0.6 && Angle >= -0.6)
             {
                 jointAngle[i] = jointSetAngle[i];
@@ -84,19 +91,19 @@ public class AngleMessage : MonoBehaviour
     /// </summary>
     /// <param name="x"></param>
     /// <returns></returns>
-    public float GetAngleZ(float value,int i)
+    public float GetAngleZ(float value, int i)
     {
         float angle = value - 180;
         float ang = 0;
-        if (angle > 0) 
+        if (angle > 0)
             ang = angle - 180;
         else
-            ang  = angle + 180;
+            ang = angle + 180;
         if (jointSetAngle[i] >= 0 && ang < 0)
             return ang + 360;
         if (jointSetAngle[i] < 0 && ang > 0)
             return ang - 360;
-        return ang; 
+        return ang;
     }
 
 
@@ -107,6 +114,7 @@ public class AngleMessage : MonoBehaviour
     /// <returns></returns>
     static public float GetSingleAngelSpeed(int n)
     {
+
         if (n == 1)
             return JointControl.joint[0].GetComponent<Joint1Contol>().j1RotationSpeedZ;
         if (n == 2)
@@ -194,8 +202,8 @@ public class AngleMessage : MonoBehaviour
         Vector3 vector3 = new Vector3(float.Parse(tempVector3[0]), float.Parse(tempVector3[1]), float.Parse(tempVector3[2]));
         if (jointSetAngle[i] >= 0 && vector3.x < 0)
             return 360 + vector3.x;
-        if (jointSetAngle[i] < 0 && vector3.x > 0) 
-        return vector3.x - 360;
+        if (jointSetAngle[i] < 0 && vector3.x > 0)
+            return vector3.x - 360;
         return vector3.x;
     }
 

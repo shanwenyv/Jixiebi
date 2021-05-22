@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 用于设置交接角度
@@ -16,11 +17,11 @@ public class JointControl : MonoBehaviour
 
     private void Awake()
     {
-        for (int i = 0; i < joint.Length; i++)
-        {
-            joint[i] = GameObject.FindGameObjectWithTag($"Joint{i + 1}");
-        }
-        guide = GameObject.FindGameObjectWithTag("Guide");
+            for (int i = 0; i < joint.Length; i++)
+            {
+                joint[i] = GameObject.FindGameObjectWithTag($"Joint{i + 1}");
+            }
+            guide = GameObject.FindGameObjectWithTag("Guide");               
     }
 
     /// <summary>
