@@ -4,10 +4,11 @@ ScriptsOnlyBuild:
     - AngleMessage
     - GameRoot
     - IRB4600Joint1Contol
+    - IRB4600Joint2Contol
     - IRB4600Joint3Contol
     - IRB4600Joint4Contol
-    - IRB4600ceshi
-    - IRB4600joint2Contol
+    - IRBAngleMessage
+    - IRBJointControl
     - Joint1Contol
     - Joint2Contol
     - Joint3Contol
@@ -69,25 +70,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11168}
     - Class: 114
-      Script: {instanceID: 11734}
+      Script: {instanceID: 11742}
     - Class: 114
-      Script: {instanceID: 11772}
+      Script: {instanceID: 11780}
     - Class: 114
-      Script: {instanceID: 11948}
+      Script: {instanceID: 11956}
     - Class: 114
-      Script: {instanceID: 12048}
+      Script: {instanceID: 12058}
     - Class: 114
-      Script: {instanceID: 12282}
+      Script: {instanceID: 12680}
     - Class: 114
-      Script: {instanceID: 12668}
+      Script: {instanceID: 12704}
     - Class: 114
-      Script: {instanceID: 12692}
+      Script: {instanceID: 12938}
     - Class: 114
-      Script: {instanceID: 12926}
+      Script: {instanceID: 12958}
     - Class: 114
-      Script: {instanceID: 12946}
-    - Class: 114
-      Script: {instanceID: 13040}
+      Script: {instanceID: 13054}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 143
@@ -136,31 +135,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11168}
     - Class: 114
-      Script: {instanceID: 11334}
+      Script: {instanceID: 11338}
     - Class: 114
-      Script: {instanceID: 11374}
+      Script: {instanceID: 11380}
     - Class: 114
-      Script: {instanceID: 11466}
+      Script: {instanceID: 11472}
     - Class: 114
-      Script: {instanceID: 11610}
+      Script: {instanceID: 11616}
     - Class: 114
-      Script: {instanceID: 11772}
+      Script: {instanceID: 11780}
     - Class: 114
-      Script: {instanceID: 11866}
+      Script: {instanceID: 11874}
     - Class: 114
-      Script: {instanceID: 11970}
+      Script: {instanceID: 11978}
     - Class: 114
-      Script: {instanceID: 12388}
+      Script: {instanceID: 12400}
     - Class: 114
-      Script: {instanceID: 12668}
+      Script: {instanceID: 12680}
     - Class: 114
-      Script: {instanceID: 12692}
+      Script: {instanceID: 12704}
     - Class: 114
-      Script: {instanceID: 12802}
+      Script: {instanceID: 12814}
     - Class: 114
-      Script: {instanceID: 12926}
+      Script: {instanceID: 12938}
     - Class: 114
-      Script: {instanceID: 13040}
+      Script: {instanceID: 13054}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -207,21 +206,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11176}
     - Class: 114
-      Script: {instanceID: 11334}
+      Script: {instanceID: 11282}
     - Class: 114
-      Script: {instanceID: 11374}
+      Script: {instanceID: 11338}
     - Class: 114
-      Script: {instanceID: 11710}
+      Script: {instanceID: 11372}
     - Class: 114
-      Script: {instanceID: 11772}
+      Script: {instanceID: 11380}
     - Class: 114
-      Script: {instanceID: 12668}
+      Script: {instanceID: 11718}
     - Class: 114
-      Script: {instanceID: 13036}
+      Script: {instanceID: 11780}
     - Class: 114
-      Script: {instanceID: 13038}
+      Script: {instanceID: 12680}
     - Class: 114
-      Script: {instanceID: 13040}
+      Script: {instanceID: 13050}
+    - Class: 114
+      Script: {instanceID: 13052}
+    - Class: 114
+      Script: {instanceID: 13054}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -301,6 +304,12 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
+      Hash: 87c7499ea41dc88aff4f38543ed3d8dc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: IRBAngleMessage
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -341,6 +350,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: IRBJointControl
   - hash:
       serializedVersion: 2
       Hash: 89f9a1b4c64db9559e39f4a2e3bfaadd
@@ -508,7 +523,7 @@ ScriptsOnlyBuild:
       Hash: 1f50292a98863c587caa351b77700450
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: IRB4600joint2Contol
+    className: IRB4600Joint2Contol
   - hash:
       serializedVersion: 2
       Hash: 0f1082e66ae0f2ab4e1003d646730aa0
@@ -838,5 +853,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/UiScene.unity
   - Assets/Scenes/SampleScene.unity
   - Assets/SampleScene2.unity
-  playerPath: "D:/\u673A\u68B0\u81C2\u6A21\u62DF\u7CFB\u7EDF\u5B9E\u4F53/dacuang
-    jixiebi.exe"
+  playerPath: F:/Mygame/JiXie/dacuang jixiebi.exe

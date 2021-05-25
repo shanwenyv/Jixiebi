@@ -82,6 +82,7 @@ public class MainPanel : BasePanel
         });
         UITool.GetOrAddComponentInChildren<Button>("AutomaticButton").onClick.AddListener(() =>
         {
+            ProgrammePanel.state = 0;
             JointControl.automatic = true;
         });
         UITool.GetOrAddComponentInChildren<Button>("GuideButton").onClick.AddListener(() =>
