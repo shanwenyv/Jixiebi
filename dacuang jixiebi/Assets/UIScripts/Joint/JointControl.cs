@@ -43,7 +43,6 @@ public class JointControl : MonoBehaviour
         if (automatic == true)
         {
             Automatic();
-            ClawControl();
             joint[0].GetComponent<Joint1Contol>().Joint1AutomationContol();
             joint[1].GetComponent<Joint2Contol>().Joint2AutomationContol();
             joint[2].GetComponent<Joint3Contol>().Joint3AutomationContol();
@@ -66,6 +65,7 @@ public class JointControl : MonoBehaviour
             }
             SetJointAngle(joint);
             ResetAngles();
+            ClawControl();
             ProgrammePanel.state++;
         }
         else if(ProgrammePanel.state > 5&& Angles == true)
@@ -113,10 +113,12 @@ public class JointControl : MonoBehaviour
             if (ProgrammePanel.claw[ProgrammePanel.state])
             {
                 MechanicalClawContol.Up();
+                Debug.Log($"claw = {ProgrammePanel.state} + 抓取");
             }
             else
             {
                 MechanicalClawContol.Down();
+                Debug.Log($"claw = {ProgrammePanel.state} + 放下");
             }
         }
     }
