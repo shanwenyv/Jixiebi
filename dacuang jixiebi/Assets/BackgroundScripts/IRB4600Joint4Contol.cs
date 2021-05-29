@@ -100,7 +100,7 @@ public class IRB4600Joint4Contol : MonoBehaviour
     }
     void Update()
     {
-        if (JointInitiaze.jointIntiazeBool == true)//初始化机械臂关节1角度
+        if (IRB4600JointInitiaze.irb4600jointIntiazeBool == true)//初始化机械臂关节1角度
         {
             //irb4600joint4Angle = 0;
             transform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));

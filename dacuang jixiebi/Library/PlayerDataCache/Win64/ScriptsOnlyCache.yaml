@@ -14,6 +14,7 @@ ScriptsOnlyBuild:
     - Joint3Contol
     - Joint4Contol
     - Joint5Contol
+    - Joint6Contol
     - JointControl
     - JointInitiaze
     - MechanicalClawContol
@@ -724,7 +725,7 @@ ScriptsOnlyBuild:
     className: ClawContol
   - hash:
       serializedVersion: 2
-      Hash: ecc412622505c31a0a7ac657c9164bea
+      Hash: 459b50185a167c1d210a783633c72823
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerContol
@@ -848,6 +849,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 5f4ecd13219321be248cc190a5917e12
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Joint6Contol
   platform: 19
   scenePathNames:
   - Assets/Scenes/UiScene.unity
