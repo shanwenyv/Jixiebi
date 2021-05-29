@@ -15,6 +15,9 @@ public class JointControl : MonoBehaviour
 
     public static GameObject[] joint = new GameObject[5];
 
+    /// <summary>
+    /// 查找机械关节和爪子
+    /// </summary>
     private void Awake()
     {
             for (int i = 0; i < joint.Length; i++)
@@ -80,8 +83,9 @@ public class JointControl : MonoBehaviour
     /// </summary>
     public static void SetAngles()
     {
-        if (Joint1Contol.joint1MotionOver == true && Joint2Contol.joint2MotionOver == true && Joint3Contol.joint3MotionOver == true &&
-             Joint4Contol.joint4MotionOver == true  && Joint5Contol.joint5MotionOver == true  )
+        if (Joint1Contol.joint1MotionOver && Joint2Contol.joint2MotionOver &&
+            Joint3Contol.joint3MotionOver && Joint4Contol.joint4MotionOver &&
+            Joint5Contol.joint5MotionOver)
         {
             Angles = true;
         }
