@@ -45,7 +45,7 @@ public class Joint6Contol : MonoBehaviour
         tempVector3 = temp.Split(',');
         //将分割好的数据传给Vector3
         Vector3 vector3 = new Vector3(float.Parse(tempVector3[0]), float.Parse(tempVector3[1]), float.Parse(tempVector3[2]));
-        return vector3.y;
+        return vector3.x;
     }
     public void Joint6Reset()//重置关节代码中的各项参数
     {

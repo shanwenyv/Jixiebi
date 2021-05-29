@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IRB4600Joint2Contol : MonoBehaviour
 {
-    public float irb4600joint2Angle = 90;//关节1旋转角度
+    public float irb4600joint2Angle = 30;//关节1旋转角度
 
     public static bool irb4600joint2Automatic = false;//关节1自动运行判定，否停止，真开始
 
@@ -100,10 +100,10 @@ public class IRB4600Joint2Contol : MonoBehaviour
     }
     void Update()
     {
-        if (JointInitiaze.jointIntiazeBool == true)//初始化机械臂关节1角度
+        if (IRB4600JointInitiaze.irb4600jointIntiazeBool == true)//初始化机械臂关节1角度
         {
             //irb4600joint2Angle = 0;
-            transform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             //joint1InitizeReturn = true;
             IRB4600Joint2Reset();
 
