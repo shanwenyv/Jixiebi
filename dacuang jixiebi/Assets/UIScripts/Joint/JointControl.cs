@@ -13,7 +13,7 @@ public class JointControl : MonoBehaviour
     public static bool automatic = false;
     public static bool Angles = false;
 
-    public static GameObject[] joint = new GameObject[5];
+    public static GameObject[] joint = new GameObject[6];
 
     /// <summary>
     /// 查找机械关节和爪子
@@ -38,6 +38,7 @@ public class JointControl : MonoBehaviour
         joint[2].GetComponent<Joint3Contol>().joint3Angle = jointAngle[2];
         joint[3].GetComponent<Joint4Contol>().joint4Angle = jointAngle[3];
         joint[4].GetComponent<Joint5Contol>().joint5Angle = jointAngle[4];
+        joint[5].GetComponent<Joint6Contol>().joint6Angle = jointAngle[5];
     }
 
     private void Update()
@@ -51,6 +52,7 @@ public class JointControl : MonoBehaviour
             joint[2].GetComponent<Joint3Contol>().Joint3AutomationContol();
             joint[3].GetComponent<Joint4Contol>().Joint4AutomationContol();
             joint[4].GetComponent<Joint5Contol>().Joint5AutomationContol();
+            joint[5].GetComponent<Joint6Contol>().Joint6AutomationContol();
         }
     }
 
@@ -61,7 +63,7 @@ public class JointControl : MonoBehaviour
     {
         if (ProgrammePanel.state <= 5&& Angles == true)
         {
-            float[] joint = new float[5];
+            float[] joint = new float[6];
             for (int i = 0; i < joint.Length; i++)
             {
                 joint[i] = ProgrammePanel.stateAngle[ProgrammePanel.state, i];
@@ -85,7 +87,7 @@ public class JointControl : MonoBehaviour
     {
         if (Joint1Contol.joint1MotionOver && Joint2Contol.joint2MotionOver &&
             Joint3Contol.joint3MotionOver && Joint4Contol.joint4MotionOver &&
-            Joint5Contol.joint5MotionOver)
+            Joint5Contol.joint5MotionOver && Joint6Contol.joint6MotionOver )
         {
             Angles = true;
         }
@@ -105,6 +107,7 @@ public class JointControl : MonoBehaviour
         joint[2].GetComponent<Joint3Contol>().Joint3Reset();
         joint[3].GetComponent<Joint4Contol>().Joint4Reset();
         joint[4].GetComponent<Joint5Contol>().Joint5Reset();
+        joint[5].GetComponent<Joint6Contol>().Joint6Reset();
     }
 
     /// <summary>

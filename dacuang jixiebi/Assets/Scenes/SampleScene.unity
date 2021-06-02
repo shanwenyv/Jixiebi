@@ -5719,6 +5719,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u5438\u76D8 (1)"
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e2b2d23d09445e6458923af75a5905be,
+        type: 3}
+      propertyPath: m_TagString
+      value: Joint6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b2d23d09445e6458923af75a5905be, type: 3}
 --- !u!1001 &331459702

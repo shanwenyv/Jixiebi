@@ -8,15 +8,15 @@ using UnityEngine.SceneManagement;
 public class AngleMessage : MonoBehaviour
 {
     public GameObject meui;
-    public GameObject[] angleMessage = new GameObject[5];
+    public GameObject[] angleMessage = new GameObject[6];
 
 
     public GameObject clawMessage;
     //六轴机械臂控制信息
     #region
-    static float[] jointSpeed = new float[5];
-    static float[] jointSetAngle = new float[5];
-    static float[] jointAngle = new float[5];
+    static float[] jointSpeed = new float[6];
+    static float[] jointSetAngle = new float[6];
+    static float[] jointAngle = new float[6];
     #endregion
 
 
@@ -46,6 +46,7 @@ public class AngleMessage : MonoBehaviour
         jointSetAngle[2] = JointControl.joint[2].GetComponent<Joint3Contol>().joint3Angle;
         jointSetAngle[3] = JointControl.joint[3].GetComponent<Joint4Contol>().joint4Angle;
         jointSetAngle[4] = JointControl.joint[4].GetComponent<Joint5Contol>().joint5Angle;
+        jointSetAngle[5] = JointControl.joint[5].GetComponent<Joint6Contol>().joint6Angle;
     }
 
     /// <summary>
@@ -58,13 +59,18 @@ public class AngleMessage : MonoBehaviour
         jointAngle[2] = GetInspectorRotationValueMethod(Joint3Contol.Instance3.transform, 2);
         jointAngle[3] = GetInspectorRotationValueMethod(Joint4Contol.Instance4.transform, 3);
         jointAngle[4] = GetAngleZ(JointControl.joint[4].transform.localRotation.eulerAngles.z, 4);
+        jointAngle[5] = GetInspectorRotationValueMethod(Joint6Contol.Instance6.transform, 5);
     }
 
+    /// <summary>
+    /// 显示关节的角度信息
+    /// </summary>
     public void ShowAngle()
     {
         for (int i = 0; i < jointAngle.Length; i++)
         {
             angleMessage[i].GetComponent<Text>().text = $"{jointAngle[i]}";
+            Debug.Log($"joint = {i}");
         }
         clawMessage.GetComponent<Text>().text = MechanicalClawContol.grabUP.ToString();
     }
@@ -125,6 +131,8 @@ public class AngleMessage : MonoBehaviour
             return JointControl.joint[3].GetComponent<Joint4Contol>().j4RotationSpeedX;
         if (n == 5)
             return JointControl.joint[4].GetComponent<Joint5Contol>().j5RotationSpeedZ;
+        if (n == 6)
+            return JointControl.joint[5].GetComponent<Joint6Contol>().j6RotationSpeedX;
         return 0;
     }
 
@@ -138,6 +146,7 @@ public class AngleMessage : MonoBehaviour
         JointControl.joint[2].GetComponent<Joint3Contol>().j3RotationSpeedX = 0;
         JointControl.joint[3].GetComponent<Joint4Contol>().j4RotationSpeedX = 0;
         JointControl.joint[4].GetComponent<Joint5Contol>().j5RotationSpeedZ = 0;
+        JointControl.joint[5].GetComponent<Joint6Contol>().j6RotationSpeedX = 0;
     }
 
     /// <summary>
@@ -162,6 +171,7 @@ public class AngleMessage : MonoBehaviour
         JointControl.joint[2].GetComponent<Joint3Contol>().j3RotationSpeedX = jointSpeed[2];
         JointControl.joint[3].GetComponent<Joint4Contol>().j4RotationSpeedX = jointSpeed[3];
         JointControl.joint[4].GetComponent<Joint5Contol>().j5RotationSpeedZ = jointSpeed[4];
+        JointControl.joint[5].GetComponent<Joint6Contol>().j6RotationSpeedX = jointSpeed[5];
     }
 
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SettingPanel : BasePanel
 {
-    float[] angle = new float[5];
+    float[] angle = new float[6];
 
     static readonly string path = "Perfabs/UI/Panel/SettingPanel";
     public SettingPanel() : base(new UIType(path)) { }

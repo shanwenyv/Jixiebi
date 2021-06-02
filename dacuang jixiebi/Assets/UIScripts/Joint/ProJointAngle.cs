@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ProJointAngle : MonoBehaviour
 {
     public GameObject proui;
-    public static GameObject[] anglePro = new GameObject[5];
+    public static GameObject[] anglePro = new GameObject[6];
     public static GameObject claw;
 
     private void Awake()
@@ -24,7 +24,7 @@ public class ProJointAngle : MonoBehaviour
     /// </summary>
     public static void ShowStateAngle()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 6; i++)
         {
             anglePro[i].GetComponent<Text>().text = $"{ProgrammePanel.stateAngle[ProgrammePanel.state, i]}";
         }

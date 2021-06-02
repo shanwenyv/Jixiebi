@@ -9,9 +9,9 @@ public class ProgrammePanel : BasePanel
     /// <summary>
     /// 用于存储各个状态的的关节设定值
     /// </summary>
-    public static float[,] stateAngle = new float[6, 5]{ {1, 1, 1, 1, 1 } , {2, 2, 2, 2, 2} , {3, 3, 3, 3, 3},
-                                                         {4, 4, 4, 4, 4 } , {5, 5, 5, 5, 5} , {6, 6, 6, 6, 6} };
-    public static float[] textAngle = new float[5];
+    public static float[,] stateAngle = new float[6, 6]{ {1, 1, 1, 1, 1, 1 } , {2, 2, 2, 2, 2, 2} , {3, 3, 3, 3, 3, 3},
+                                                         {4, 4, 4, 4, 4, 4 } , {5, 5, 5, 5, 5, 5} , {6, 6, 6, 6, 6, 6} };
+    public static float[] textAngle = new float[6];
     public static bool[] claw = new bool[6] { false, false, false, false, false, false };
 
 
@@ -94,7 +94,7 @@ public class ProgrammePanel : BasePanel
     public void ApplyStateAngle()
 
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 6; i++)
         {
             stateAngle[state, i] = textAngle[i];
         }
@@ -105,7 +105,7 @@ public class ProgrammePanel : BasePanel
     /// </summary>
     public void DeleteStateAnlge()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 6; i++)
         {
             stateAngle[state, i] = 0;
         }
