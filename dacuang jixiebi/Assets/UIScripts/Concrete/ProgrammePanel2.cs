@@ -82,7 +82,7 @@ public class ProgrammePanel2 : BasePanel
     /// </summary>
     public void GetTextAngle()
     {
-        for (int i = 0; i < textAngle.Length; i++)  
+        for (int i = 0; i < textAngle.Length; i++)
         {
             float.TryParse(UITool.GetOrAddComponentInChildren<Text>($"InputJoint{i + 1}Angle").text, out textAngle[i]);
         }
